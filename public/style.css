@@ -1,3 +1,5 @@
+
+/* //////////////////////////////////////// Home Page /////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 main{
     background-color: black; /* Used if the image is unavailable */
     height: 1300px; /* You must set a specified height */
@@ -13,9 +15,9 @@ main{
     background-size: cover; /* Resize the background image to cover the entire container */
 }
 
-.buttonPack{
+/* .buttonPack{
  
-}
+} */
 .heading{
     color: violet;
     text-align: center;
@@ -160,3 +162,47 @@ main{
         outline-offset: 15px;
         text-shadow: 1px 1px 2px #153b4b; 
       }
+
+      /* ///////////////////////////////////////////////////////////////////// Main Page /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 10px;
+        background-color: transparent;
+        padding: 10px;
+      }
+      
+      .grid-container > div {
+        background-color: rgba(123, 30, 177, 0.3);
+        text-align: center;
+        padding: 20px 0;
+        font-size: 30px;
+      }
+      
+      .header {
+     
+        grid-column-start: 1;
+        grid-column-end: 4;
+      }
+
+      .favs {
+  
+        grid-column-start: 1;
+        grid-column-end: 4;
+      }
+
+      .filter {
+        grid-row-start: 3;
+        grid-row-end: 6;
+
+      }
+
+      .list {
+
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 6;
+      }
+
