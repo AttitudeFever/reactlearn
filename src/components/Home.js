@@ -5,14 +5,18 @@ import { Link } from 'react-router-dom';
 function Home() {
     return (
         <div className="hero-image">
-                    <div className="headingbundle" >
+                    
                         <h1 className="heading">MRU Movie Collection
                             <img className="logo" src="./logo.png" alt="MRU Theater Logo" />
-                            <Link to='/about'>
-                                <a href={" "} class="btn btn-6">About Us</a> 
-                            </Link>
+                            <div className="buttonPack" >
+                                <Link to='/about'>
+                                    <button className="btn btn-6">About Us &nbsp;&nbsp;&nbsp;<i className="fa fa-group"></i></button>
+                                </Link>
+                                <Link to='/main'>
+                                    <button className="btn btn-5">List All Movies &nbsp;&nbsp;&nbsp;<i className="fa fa-film"></i></button> 
+                                </Link>
+                            </div>
                         </h1>
-                    </div>
                 
                 <div className="container h-100">
                 <div className="d-flex justify-content-center h-100">
@@ -22,9 +26,6 @@ function Home() {
                     </div>
                 </div>
              </div>
-             <Link to='/main'>
-                <a href={" "} class="btn btn-5">List All Movies</a> 
-             </Link>
         </div>
     )
 }
