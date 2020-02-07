@@ -9,6 +9,7 @@ class Main extends React.Component {
         this.state={
             movieData : []
         }
+        this.sortBytitle = this.sortBytitle.bind(this);
     }
 
     async componentDidMount(){
@@ -33,7 +34,7 @@ class Main extends React.Component {
             }
     }
 
-    sortBytitle = (storedItemList) =>{
+    sortBytitle (storedItemList) {
         storedItemList.sort(function (a, b) {
             if (a.title > b.title) {
                 return 1;
@@ -55,7 +56,8 @@ class Main extends React.Component {
                 <Header/>
                 <div className="favs">2</div>
                 <div className="filter">3</div>  
-                <AllMovieList movieData={this.state.movieData}/>
+                <AllMovieList movieData={this.state.movieData} searchValue={this.props.searchValue} searchFLAG={this.props.searchFLAG} 
+                    listAllFLAG={this.props.listAllFLAG} />
                 </div>`
             </div>
         )

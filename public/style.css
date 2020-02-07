@@ -87,7 +87,7 @@ main{
 
     .searchbar:hover > .search_icon{
     background: white;
-    color: fuchsia
+    color: fuchsia;
     }
 
     .search_icon{
@@ -165,7 +165,7 @@ main{
 
       /* ///////////////////////////////////////////////////////////////////// Main Page /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
-      .grid-container {
+      /* .grid-container {
         display: grid;
         grid-template-columns: auto auto auto;
         grid-gap: 10px;
@@ -204,5 +204,12 @@ main{
         grid-column-end: 4;
         grid-row-start: 3;
         grid-row-end: 6;
+        overflow-y: scroll;
+        height: 5%;
       }
 
+      /* /////////////////////////////////////////////////////////////////////////////SingleMovieBrief //////////////////////////////////////////////////////////////////////////////////////// */
+
+      table, th, td {
+        border: 1px solid black;
+      } */
