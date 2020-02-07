@@ -17,10 +17,10 @@ class AllMovieList extends React.Component {
             })
             
             if (found.length === 0){
-                renderThis = <p>Not Found</p>
+            renderThis = <tr><td>Search Result For "{this.props.searchValue}" Not Found! Try Search Again.</td></tr>
             }
             else {
-                renderThis =  found.map(( item, index)=> {
+                renderThis = found.map(( item, index)=> {
                     return <SingleMovieBrief  key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average}/>
                 })
             }
@@ -40,9 +40,9 @@ class AllMovieList extends React.Component {
                 <table>
                     <thead>
                         <tr>
-                            <th>Title</th>
-                            <th>Year</th> 
-                            <th>Ratings</th>
+                            <th><button onClick={this.props.sortByTitle}>Title</button></th>
+                            <th><button onClick={this.props.sortByYear}>Year</button></th> 
+                            <th><button onClick={this.props.sortByRatings}>Ratings</button></th>
                         </tr>
                     </thead>
                     <tbody>

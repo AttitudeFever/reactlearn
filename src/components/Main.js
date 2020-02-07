@@ -9,14 +9,17 @@ class Main extends React.Component {
         this.state={
             movieData : []
         }
-        this.sortBytitle = this.sortBytitle.bind(this);
+        this.intialSortBytitle = this.intialSortBytitle.bind(this);
+        this.sortByYear = this.sortByYear.bind(this);
+        this.sortByTitle = this.sortByTitle.bind(this);
+        this.sortByRatings = this.sortByRatings.bind(this);
     }
 
     async componentDidMount(){
         let storedItemList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)); 
 
         if (storedItemList) {
-            this.sortBytitle(storedItemList);
+            this.intialSortBytitle(storedItemList);
         }
         else {
             try {
@@ -26,7 +29,7 @@ class Main extends React.Component {
                     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(jsonData));
                     storedItemList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
 
-                    this.sortBytitle(storedItemList);
+                    this.intialSortBytitle(storedItemList);
             }
                 catch (error) {
                     console.error(error);
@@ -34,7 +37,7 @@ class Main extends React.Component {
             }
     }
 
-    sortBytitle (storedItemList) {
+    intialSortBytitle(storedItemList) {
         storedItemList.sort(function (a, b) {
             if (a.title > b.title) {
                 return 1;
@@ -48,6 +51,48 @@ class Main extends React.Component {
         this.setState( {movieData: storedItemList } );
     }
 
+    sortByYear() {
+        this.state.movieData.sort(function (a, b) {
+            if (a.release_date > b.release_date) {
+                return 1;
+            }
+            if (b.release_date > a.release_date) {
+                return -1;
+            }
+            return 0;
+        });
+
+        this.forceUpdate()
+    }
+
+    sortByTitle() {
+        this.state.movieData.sort(function (a, b) {
+            if (a.title > b.title) {
+                return 1;
+            }
+            if (b.title > a.title) {
+                return -1;
+            }
+            return 0;
+        });
+
+        this.forceUpdate()
+    }
+
+    sortByRatings() {
+        this.state.movieData.sort(function (a, b) {
+            if (a.ratings.average > b.ratings.average) {
+                return 1;
+            }
+            if (b.ratings.average > a.ratings.average) {
+                return -1;
+            }
+            return 0;
+        });
+
+        this.forceUpdate()
+    }
+
     render() {
         console.log(this.state.movieData)
         return (
@@ -57,7 +102,8 @@ class Main extends React.Component {
                 <div className="favs">2</div>
                 <div className="filter">3</div>  
                 <AllMovieList movieData={this.state.movieData} searchValue={this.props.searchValue} searchFLAG={this.props.searchFLAG} 
-                    listAllFLAG={this.props.listAllFLAG} />
+                    listAllFLAG={this.props.listAllFLAG} sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} 
+                    sortByRatings= {this.sortByRatings}/>
                 </div>`
             </div>
         )
