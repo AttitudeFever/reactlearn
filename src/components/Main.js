@@ -1,40 +1,70 @@
 import React from 'react'
 import Header from './Header';
 import AllMovieList from './AllMovieList';
+import FavList from './FavList';
+import * as cloneDeep from 'lodash/cloneDeep';
+
 
 const LOCAL_STORAGE_KEY = 'movieData';
+const LOCAL_STORAGE_KEY_2 = 'favList';
 class Main extends React.Component {
     constructor(){
         super()
         this.state={
-            movieData : []
+            movieData : [],
+            favList:[]
         }
+        this.storeMainAPILocally = this.storeMainAPILocally.bind(this);
+        this.storeFavListLocally = this.storeFavListLocally.bind(this);
         this.intialSortBytitle = this.intialSortBytitle.bind(this);
         this.sortByYear = this.sortByYear.bind(this);
         this.sortByTitle = this.sortByTitle.bind(this);
         this.sortByRatings = this.sortByRatings.bind(this);
+        this.addToFav= this.addToFav.bind(this);
+        this.deleteFavItem=this.deleteFavItem.bind(this)
     }
 
-    async componentDidMount(){
-        let storedItemList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)); 
+    componentDidMount(){
+        this.storeMainAPILocally();
+        this.storeFavListLocally();
+    }
+
+    componentDidUpdate(){
+        localStorage.setItem(LOCAL_STORAGE_KEY_2, JSON.stringify(this.state.favList));
+    }
+
+    async storeMainAPILocally() {
+        let storedItemList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
 
         if (storedItemList) {
             this.intialSortBytitle(storedItemList);
         }
         else {
             try {
-                    const url = "http://www.randyconnolly.com/funwebdev/3rd/api/movie/movies-brief.php?id=ALL";
-                    const response = await fetch(url);
-                    const jsonData = await response.json();
-                    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(jsonData));
-                    storedItemList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+                const url = "http://www.randyconnolly.com/funwebdev/3rd/api/movie/movies-brief.php?id=ALL";
+                const response = await fetch(url);
+                const jsonData = await response.json();
+                localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(jsonData));
+                storedItemList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
 
-                    this.intialSortBytitle(storedItemList);
+                this.intialSortBytitle(storedItemList);
             }
-                catch (error) {
-                    console.error(error);
-                }
+            catch (error) {
+                console.error(error);
             }
+        }
+    }
+
+    storeFavListLocally() {
+        let storedItemList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_2));
+
+        if (storedItemList) {
+
+            this.setState({ favList: storedItemList })
+
+        } else {
+            localStorage.setItem(LOCAL_STORAGE_KEY_2, JSON.stringify(this.state.favList));
+        }
     }
 
     intialSortBytitle(storedItemList) {
@@ -93,18 +123,45 @@ class Main extends React.Component {
         this.forceUpdate()
     }
 
+    addToFav(title, poster, id) {
+        const copyFavs = cloneDeep(this.state.favList);
+
+        if (this.state.favList.length === 0) {
+            copyFavs.push({ id: id, title: title, poster: poster })
+        }
+        else {
+            const found = copyFavs.some(item => {
+                return item.title === title
+            })
+
+            if (!found) {
+                copyFavs.push({ id: id, title: title, poster: poster })
+            }
+        }
+
+        this.setState({ favList: copyFavs })
+    }
+
+    deleteFavItem(id){
+        const copyFavs = cloneDeep(this.state.favList);
+        const remainigItems = copyFavs.filter(item => {
+            return item.id !== id
+        })
+
+        this.setState({ favList: remainigItems })
+    }
+
     render() {
-        console.log(this.state.movieData)
+        //console.log(this.state.movieData)
+        //console.log(this.state.favList)
         return (
-            <div>
                 <div className="grid-container">
-                <Header/>
-                <div className="favs">2</div>
-                <div className="filter">3</div>  
-                <AllMovieList movieData={this.state.movieData} searchValue={this.props.searchValue} searchFLAG={this.props.searchFLAG} 
-                    listAllFLAG={this.props.listAllFLAG} sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} 
-                    sortByRatings= {this.sortByRatings}/>
-                </div>`
+                    <Header/>
+                    <FavList favList={this.state.favList} deleteFavItem={this.deleteFavItem}/>
+                    <div className="filter">3</div>  
+                    <AllMovieList movieData={this.state.movieData} searchValue={this.props.searchValue} searchFLAG={this.props.searchFLAG} 
+                        listAllFLAG={this.props.listAllFLAG} sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} 
+                        sortByRatings= {this.sortByRatings} addToFav={this.addToFav}/>
             </div>
         )
     }

@@ -21,14 +21,14 @@ class AllMovieList extends React.Component {
             }
             else {
                 renderThis = found.map(( item, index)=> {
-                    return <SingleMovieBrief  key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average}/>
+                    return <SingleMovieBrief  key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id}/>
                 })
             }
         }
         else if(this.props.listAllFLAG)
         {
             renderThis = this.props.movieData.map( (item, index) =>{
-                return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average}/>
+                return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id}/>
             })
         }
     }
