@@ -22,14 +22,16 @@ class Home extends React.Component {
     setSearchFLAG(){
         let searchFLAG = true;
         let listAllFLAG = false;
-        this.props.getFLAGS(searchFLAG, listAllFLAG);
+        let FilterFLAG = false;
+        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG);
         this.props.getSearchValue(this.state.searchValue);
     }
 
     setListAllFLAG(){
         let searchFLAG = false;
         let listAllFLAG = true;
-        this.props.getFLAGS(searchFLAG, listAllFLAG) 
+        let FilterFLAG = false;
+        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG) 
     }
 
     render(){

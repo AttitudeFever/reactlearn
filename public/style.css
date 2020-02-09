@@ -165,7 +165,7 @@ main{
 
       /* ///////////////////////////////////////////////////////////////////// Main Page /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
-      /* .grid-container {
+      .grid-container {
         display: grid;
         grid-template-columns: auto auto auto;
         grid-gap: 10px;
@@ -173,7 +173,7 @@ main{
         padding: 10px;
       }
       
-      .grid-container > div {
+      /* .grid-container > div {
         background-color: rgba(123, 30, 177, 0.3);
         text-align: center;
         padding: 20px 0;
@@ -206,10 +206,10 @@ main{
         grid-row-end: 6;
         overflow-y: scroll;
         height: 5%;
-      }
+      }  */
 
       /* /////////////////////////////////////////////////////////////////////////////SingleMovieBrief //////////////////////////////////////////////////////////////////////////////////////// */
-
+/* 
       table, th, td {
         border: 1px solid black;
       } */

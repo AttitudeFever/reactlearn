@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './Header';
 import AllMovieList from './AllMovieList';
 import FavList from './FavList';
+import FilterContainter from './FilterContainer';
 import * as cloneDeep from 'lodash/cloneDeep';
 
 
@@ -12,7 +13,8 @@ class Main extends React.Component {
         super()
         this.state={
             movieData : [],
-            favList:[]
+            favList:[],
+            filterResult:[]
         }
         this.storeMainAPILocally = this.storeMainAPILocally.bind(this);
         this.storeFavListLocally = this.storeFavListLocally.bind(this);
@@ -22,6 +24,8 @@ class Main extends React.Component {
         this.sortByRatings = this.sortByRatings.bind(this);
         this.addToFav= this.addToFav.bind(this);
         this.deleteFavItem=this.deleteFavItem.bind(this)
+        this.getFilterResult = this.getFilterResult.bind(this);
+        this.setFilterFLAG = this.setFilterFLAG.bind(this);
     }
 
     componentDidMount(){
@@ -92,6 +96,16 @@ class Main extends React.Component {
             return 0;
         });
 
+        this.state.filterResult.sort(function (a, b) {
+            if (a.release_date > b.release_date) {
+                return 1;
+            }
+            if (b.release_date > a.release_date) {
+                return -1;
+            }
+            return 0;
+        });
+
         this.forceUpdate()
     }
 
@@ -106,11 +120,31 @@ class Main extends React.Component {
             return 0;
         });
 
+        this.state.filterResult.sort(function (a, b) {
+            if (a.title > b.title) {
+                return 1;
+            }
+            if (b.title > a.title) {
+                return -1;
+            }
+            return 0;
+        });
+
         this.forceUpdate()
     }
 
     sortByRatings() {
         this.state.movieData.sort(function (a, b) {
+            if (a.ratings.average > b.ratings.average) {
+                return 1;
+            }
+            if (b.ratings.average > a.ratings.average) {
+                return -1;
+            }
+            return 0;
+        });
+
+        this.state.filterResult.sort(function (a, b) {
             if (a.ratings.average > b.ratings.average) {
                 return 1;
             }
@@ -151,17 +185,35 @@ class Main extends React.Component {
         this.setState({ favList: remainigItems })
     }
 
+    getFilterResult(result){
+        this.setState( {filterResult : result} ) 
+        this.setFilterFLAG();       
+    }
+
+    setFilterFLAG(){
+        let searchFLAG = false;
+        let listAllFLAG = false;
+        let filterFLAG = true;
+        this.props.getFLAGS(searchFLAG, listAllFLAG, filterFLAG) 
+    }
+
+
     render() {
         //console.log(this.state.movieData)
         //console.log(this.state.favList)
         return (
                 <div className="grid-container">
                     <Header/>
+                    
                     <FavList favList={this.state.favList} deleteFavItem={this.deleteFavItem}/>
-                    <div className="filter">3</div>  
-                    <AllMovieList movieData={this.state.movieData} searchValue={this.props.searchValue} searchFLAG={this.props.searchFLAG} 
-                        listAllFLAG={this.props.listAllFLAG} sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} 
-                        sortByRatings= {this.sortByRatings} addToFav={this.addToFav}/>
+                    
+                    <FilterContainter movieData={this.state.movieData} getFilterResult={this.getFilterResult}/>  
+                    
+                    <AllMovieList movieData={this.state.movieData} searchValue={this.props.searchValue} 
+                        searchFLAG={this.props.searchFLAG} listAllFLAG={this.props.listAllFLAG} 
+                        sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} sortByRatings= {this.sortByRatings} 
+                        addToFav={this.addToFav} 
+                        filterResult={this.state.filterResult} filterFLAG={this.props.filterFLAG}/>
             </div>
         )
     }

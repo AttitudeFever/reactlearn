@@ -6,7 +6,7 @@ class AllMovieList extends React.Component {
     constructor(){
         super()
         this.state={}
-        //this.conditionalRendering = this.conditionalRendering.bind(this);
+        this.conditionalRendering = this.conditionalRendering.bind(this);
     }
 
     conditionalRendering(){
@@ -31,8 +31,24 @@ class AllMovieList extends React.Component {
                 return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id}/>
             })
         }
+        else if(this.props.filterFLAG)
+        { 
+            renderThis = this.props.filterResult.map( (item, index) =>{
+                return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id}/>
+            })
+        }
     }
 
+    // shouldComponentUpdate(){
+    //     if (this.props.filterFLAG || this.props.listAllFLAG || this.props.searchFLAG) {
+    //         console.log(this.props.filterFLAG, this.props.listAllFLAG, this.props.searchFLAG)
+    //         return true;
+    //     }
+    //     else{
+    //         return false;
+    //     }
+    // }
+    
     render(){
         this.conditionalRendering();
         return (

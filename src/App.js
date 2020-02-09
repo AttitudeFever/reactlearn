@@ -10,7 +10,8 @@ class App extends React.Component {
         this.state={
             searchValue : "",
             searchFLAG:false,
-            listAllFLAG:false
+            listAllFLAG:false,
+            filterFLAG:false
         }
         this.getSearchValue = this.getSearchValue.bind(this);
         this.getFLAGS = this.getFLAGS.bind(this);
@@ -20,8 +21,8 @@ class App extends React.Component {
         this.setState( {searchValue : searchValue} )
     }
 
-    getFLAGS(searchFLAG, listAllFLAG){
-        this.setState( {searchFLAG : searchFLAG, listAllFLAG : listAllFLAG} );
+    getFLAGS(searchFLAG, listAllFLAG, filterFLAG){
+        this.setState( {searchFLAG : searchFLAG, listAllFLAG : listAllFLAG, filterFLAG : filterFLAG} );
     }
     
     render(){
@@ -31,8 +32,9 @@ class App extends React.Component {
 
                 <Route path="/" exact render={ (props) => <Home getSearchValue={this.getSearchValue} getFLAGS={this.getFLAGS} />}/>
 
-                <Route path="/main" exact render={ (props) => <Main searchValue={this.state.searchValue} searchFLAG={this.state.searchFLAG} 
-                    listAllFLAG={this.state.listAllFLAG} />}/>
+                <Route path="/main" exact render={ (props) => <Main searchValue={this.state.searchValue} 
+                    searchFLAG={this.state.searchFLAG} listAllFLAG={this.state.listAllFLAG} 
+                    filterFLAG={this.state.filterFLAG} getFLAGS={this.getFLAGS}/>}/>
             </main>
         )
     }

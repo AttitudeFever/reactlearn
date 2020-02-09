@@ -8,7 +8,7 @@ class FavList extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className="favs">
                 {
                     this.props.favList.map( (item, index) =>{
                         return <SingleFav key={index} id={item.id} title={item.title} poster={item.poster} 
