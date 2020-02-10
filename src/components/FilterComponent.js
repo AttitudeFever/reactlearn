@@ -15,55 +15,59 @@ function FilterComponent(props) {
                 <input type="radio"
                     name="dateSearch"
                     value="before"
-                //checked = {}
-                //onChange = {props.handleChange}
+                    checked = {props.beforeRadio}
+                    onChange = {props.handleChange}
                 /> Before
-                        <input type="text" placeholder="Before Year" />
+                        <input type="number" min="1900" max="2020" id="beforeYearSearch" name="beforeYearSearch" onChange={props.handleChange} value={props.beforeYear}/>
 
                 <input type="radio"
                     name="dateSearch"
                     value="after"
-                //checked = {}
-                //onChange = {props.handleChange}
+                    checked = {props.afterRadio}
+                    onChange = {props.handleChange}
                 /> After
-                        <input type="text" placeholder="After Year" />
+                        <input type="number" min="1900" max="2020" id="afterYearSearch" name="afterYearSearch" onChange={props.handleChange} value={props.afterYear} disabled/>
 
                 <input type="radio"
                     name="dateSearch"
                     value="between"
-                //checked = {}
-                //onChange = {props.handleChange}
+                    checked = {props.betweenRadio}
+                    onChange = {props.handleChange}
                 /> Between
-                        <input type="text" placeholder="Starting Year" />
-                <input type="text" placeholder="Ending Year" />
+                        <input type="number" min="1900" max="2020" id="betweenStartingYearSearch" name="betweenStartingYearSearch" onChange={props.handleChange} value={props.betweenStartYear} disabled/>
+                        <input type="number" min="1900" max="2020" id="betweenEndingYearSearch" name="betweenEndingYearSearch" onChange={props.handleChange} value={props.betweenEndYear} disabled/>
 
                 <label>Ratings</label>
                 <input type="radio"
                     name="ratingSearch"
                     value="below"
-                //checked = {}
-                //onChange = {props.handleChange}
+                    checked = {props.belowRadio}
+                    onChange = {props.handleChange}
                 /> Below
-                        <input type="range" min="1" max="10" value="50" className="slider" id="belowRating"></input>
+                        <input type="range" min="1" max="10" name="belowRating" value={props.belowSlider} onChange={props.handleChange} className="slider" id="belowRating"></input>
+                        <p>Below:{props.belowSlider}</p>
 
                 <input type="radio"
                     name="ratingSearch"
                     value="above"
-                //checked = {}
-                //onChange = {props.handleChange}
+                    checked = {props.aboveRadio}
+                    onChange = {props.handleChange}
                 /> Above
-                        <input type="range" min="1" max="10" value='' className="slider" id="aboveRating"></input>
+                        <input type="range" min="1" max="10" name="aboveRating" value={props.aboveSlider} onChange={props.handleChange} className="slider" id="aboveRating" disabled></input>
+                        <p>Above:{props.aboveSlider}</p>
 
                 <input type="radio"
                     name="ratingSearch"
-                    value="between"
-                //checked = {}
-                //onChange = {props.handleChange}
+                    value="betweenRatings"
+                    checked = {props.betweenRatingRadio}
+                    onChange = {props.handleChange}
                 /> Between
-                        <input type="range" min="1" max="10" value="" className="slider" id="betweenRating"></input>
+                        <input type="range" min="1" max="10" name="betweenStartRating" value={props.betweenStartSlider} onChange={props.handleChange} className="slider" id="betweenStartRating" disabled></input>
+                        <input type="range" min="1" max="10" name="betweenEndRating" value={props.betweenEndSlider} onChange={props.handleChange} className="slider" id="betweenEndRating" disabled></input>
+                        <p>Between:{props.betweenStartSlider} And {props.betweenEndSlider}</p>
                 
                 <button onClick={props.handleSubmit}>Search</button>
-                <button>Clear</button>
+                <button onClick={props.handleClear}>Clear</button>
             </form>
 
         </div>

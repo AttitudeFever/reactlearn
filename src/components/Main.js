@@ -26,6 +26,7 @@ class Main extends React.Component {
         this.deleteFavItem=this.deleteFavItem.bind(this)
         this.getFilterResult = this.getFilterResult.bind(this);
         this.setFilterFLAG = this.setFilterFLAG.bind(this);
+        this.setListAllFLAG = this.setListAllFLAG.bind(this);
     }
 
     componentDidMount(){
@@ -197,6 +198,13 @@ class Main extends React.Component {
         this.props.getFLAGS(searchFLAG, listAllFLAG, filterFLAG) 
     }
 
+    setListAllFLAG(){
+        let searchFLAG = false;
+        let listAllFLAG = true;
+        let FilterFLAG = false;
+        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG) 
+    }
+
 
     render() {
         //console.log(this.state.movieData)
@@ -207,7 +215,8 @@ class Main extends React.Component {
                     
                     <FavList favList={this.state.favList} deleteFavItem={this.deleteFavItem}/>
                     
-                    <FilterContainter movieData={this.state.movieData} getFilterResult={this.getFilterResult}/>  
+                    <FilterContainter movieData={this.state.movieData} getFilterResult={this.getFilterResult} 
+                        setListAllFLAG={this.setListAllFLAG}/>  
                     
                     <AllMovieList movieData={this.state.movieData} searchValue={this.props.searchValue} 
                         searchFLAG={this.props.searchFLAG} listAllFLAG={this.props.listAllFLAG} 

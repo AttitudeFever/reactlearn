@@ -20,22 +20,26 @@ class AllMovieList extends React.Component {
             renderThis = <tr><td>Search Result For "{this.props.searchValue}" Not Found! Try Search Again.</td></tr>
             }
             else {
-                renderThis = found.map(( item, index)=> {
-                    return <SingleMovieBrief  key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id}/>
+                renderThis = found.map((item, index) => {
+                    return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} />
                 })
             }
         }
-        else if(this.props.listAllFLAG)
-        {
-            renderThis = this.props.movieData.map( (item, index) =>{
-                return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id}/>
+        else if (this.props.listAllFLAG) {
+            renderThis = this.props.movieData.map((item, index) => {
+                return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} />
             })
         }
-        else if(this.props.filterFLAG)
-        { 
-            renderThis = this.props.filterResult.map( (item, index) =>{
-                return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id}/>
-            })
+        else if (this.props.filterFLAG) {
+
+            if (this.props.filterResult.length === 0) {
+                renderThis = <tr><td>No Matches Found! Try Again With Better Filtering.</td></tr>
+            }
+            else {
+                renderThis = this.props.filterResult.map((item, index) => {
+                    return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} />
+                })
+            }
         }
     }
 
@@ -48,7 +52,7 @@ class AllMovieList extends React.Component {
     //         return false;
     //     }
     // }
-    
+
     render(){
         this.conditionalRendering();
         return (
