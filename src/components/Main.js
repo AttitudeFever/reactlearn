@@ -12,6 +12,7 @@ class Main extends React.Component {
     constructor(){
         super()
         this.state={
+            isLoading:false,
             movieData : [],
             favList:[],
             filterResult:[]
@@ -30,6 +31,7 @@ class Main extends React.Component {
     }
 
     componentDidMount(){
+        this.setState( {isLoading : true } )
         this.storeMainAPILocally();
         this.storeFavListLocally();
     }
@@ -43,6 +45,7 @@ class Main extends React.Component {
 
         if (storedItemList) {
             this.intialSortBytitle(storedItemList);
+            this.setState( {isLoading : false } )
         }
         else {
             try {
@@ -53,6 +56,7 @@ class Main extends React.Component {
                 storedItemList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
 
                 this.intialSortBytitle(storedItemList);
+                this.setState( {isLoading : false } )
             }
             catch (error) {
                 console.error(error);
@@ -207,23 +211,25 @@ class Main extends React.Component {
 
 
     render() {
-        //console.log(this.state.movieData)
-        //console.log(this.state.favList)
-        return (
-                <div className="grid-container">
-                    <Header/>
-                    
-                    <FavList favList={this.state.favList} deleteFavItem={this.deleteFavItem}/>
-                    
-                    <FilterContainter movieData={this.state.movieData} getFilterResult={this.getFilterResult} 
-                        setListAllFLAG={this.setListAllFLAG}/>  
-                    
-                    <AllMovieList movieData={this.state.movieData} searchValue={this.props.searchValue} 
-                        searchFLAG={this.props.searchFLAG} listAllFLAG={this.props.listAllFLAG} 
-                        sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} sortByRatings= {this.sortByRatings} 
-                        addToFav={this.addToFav} 
-                        filterResult={this.state.filterResult} filterFLAG={this.props.filterFLAG}/>
+        const rederThis = this.state.isLoading ?
+            <p>Loading....</p>
+            :
+            <div className="grid-container">
+                <Header />
+
+                <FavList favList={this.state.favList} deleteFavItem={this.deleteFavItem} />
+
+                <FilterContainter movieData={this.state.movieData} getFilterResult={this.getFilterResult}
+                    setListAllFLAG={this.setListAllFLAG} />
+
+                <AllMovieList movieData={this.state.movieData} searchValue={this.props.searchValue}
+                    searchFLAG={this.props.searchFLAG} listAllFLAG={this.props.listAllFLAG}
+                    sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} sortByRatings={this.sortByRatings}
+                    addToFav={this.addToFav}
+                    filterResult={this.state.filterResult} filterFLAG={this.props.filterFLAG} />
             </div>
+        return (
+            rederThis
         )
     }
 }

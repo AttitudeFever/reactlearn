@@ -12,8 +12,8 @@ class AllMovieList extends React.Component {
     conditionalRendering(){
         if (this.props.searchFLAG) 
         {
-            const found= this.props.movieData.filter( item => {
-                return item.title.toUpperCase() === this.props.searchValue.toUpperCase() 
+            const found = this.props.movieData.filter(item => {
+                return item.title.toUpperCase().includes(this.props.searchValue.toUpperCase())
             })
             
             if (found.length === 0){
