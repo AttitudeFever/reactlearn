@@ -214,19 +214,21 @@ class Main extends React.Component {
         const rederThis = this.state.isLoading ?
             <p>Loading....</p>
             :
-            <div className="grid-container">
-                <Header />
+            // <div>
+                
+                <div className="grid-container">
+                    <Header />
+                    <FavList favList={this.state.favList} deleteFavItem={this.deleteFavItem} />
 
-                <FavList favList={this.state.favList} deleteFavItem={this.deleteFavItem} />
+                    <FilterContainter movieData={this.state.movieData} getFilterResult={this.getFilterResult}
+                        setListAllFLAG={this.setListAllFLAG} />
 
-                <FilterContainter movieData={this.state.movieData} getFilterResult={this.getFilterResult}
-                    setListAllFLAG={this.setListAllFLAG} />
-
-                <AllMovieList movieData={this.state.movieData} searchValue={this.props.searchValue}
-                    searchFLAG={this.props.searchFLAG} listAllFLAG={this.props.listAllFLAG}
-                    sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} sortByRatings={this.sortByRatings}
-                    addToFav={this.addToFav}
-                    filterResult={this.state.filterResult} filterFLAG={this.props.filterFLAG} />
+                    <AllMovieList movieData={this.state.movieData} searchValue={this.props.searchValue}
+                        searchFLAG={this.props.searchFLAG} listAllFLAG={this.props.listAllFLAG}
+                        sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} sortByRatings={this.sortByRatings}
+                        addToFav={this.addToFav}
+                        filterResult={this.state.filterResult} filterFLAG={this.props.filterFLAG} />
+                {/* </div> */}
             </div>
         return (
             rederThis

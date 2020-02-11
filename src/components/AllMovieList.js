@@ -17,27 +17,27 @@ class AllMovieList extends React.Component {
             })
             
             if (found.length === 0){
-            renderThis = <tr><td>Search Result For "{this.props.searchValue}" Not Found! Try Search Again.</td></tr>
+            renderThis = <p>Search Result For "{this.props.searchValue}" Not Found! Try Search Again.</p>
             }
             else {
                 renderThis = found.map((item, index) => {
-                    return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} />
+                    return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline}/>
                 })
             }
         }
         else if (this.props.listAllFLAG) {
             renderThis = this.props.movieData.map((item, index) => {
-                return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} />
+                return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline}/>
             })
         }
         else if (this.props.filterFLAG) {
 
             if (this.props.filterResult.length === 0) {
-                renderThis = <tr><td>No Matches Found! Try Again With Better Filtering.</td></tr>
+                renderThis = <p>No Matches Found! Try Again With Better Filtering.</p>
             }
             else {
                 renderThis = this.props.filterResult.map((item, index) => {
-                    return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} />
+                    return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline}/>
                 })
             }
         }
@@ -53,24 +53,20 @@ class AllMovieList extends React.Component {
     //     }
     // }
 
-    render(){
+    render() {
         this.conditionalRendering();
         return (
-            <div className="list">
-                <table>
-                    <thead>
-                        <tr>
-                            <th><button onClick={this.props.sortByTitle}>Title</button></th>
-                            <th><button onClick={this.props.sortByYear}>Year</button></th> 
-                            <th><button onClick={this.props.sortByRatings}>Ratings</button></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            renderThis
-                        }
-                    </tbody>
-                </table>
+            <div>
+                <div className="buttonPack">
+                    <button onClick={this.props.sortByTitle}>Title</button>
+                    <button onClick={this.props.sortByYear}>Year</button>
+                    <button onClick={this.props.sortByRatings}>Ratings</button>
+                </div>
+                <div className="list">
+                    {
+                        renderThis
+                    }
+                </div>
             </div>
         )
     }
