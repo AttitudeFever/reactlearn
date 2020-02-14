@@ -2,11 +2,11 @@ import React from 'react'
 
 function FilterComponent(props) {
     return (
-        <div className="filter">
-            <h1>Advance Movie Search</h1>
+        <div className="filter" id="filter">
+            <button id="btnFilter" onClick={props.filterPopup}>Filter<i className="fa fa-filter"></i></button>
+            
             <form>
-                <label>Title: </label>
-                &nbsp;
+            <h1>Title</h1>
                 <input type="text" placeholder="Key Word"
                     name="titleSearch"
                     value={props.titleSearch}
@@ -16,6 +16,7 @@ function FilterComponent(props) {
                     <label>Year</label>
                     <br />
                     <input type="radio"
+                        className="option-input radio"
                         name="dateSearch"
                         value="before"
                         checked={props.beforeRadio}
@@ -24,6 +25,7 @@ function FilterComponent(props) {
                         <input type="number" min="1900" max="2020" id="beforeYearSearch" name="beforeYearSearch" onChange={props.handleChange} value={props.beforeYear} />
                     &nbsp;
                 <input type="radio"
+                        className="option-input radio"
                         name="dateSearch"
                         value="after"
                         checked={props.afterRadio}
@@ -33,13 +35,14 @@ function FilterComponent(props) {
                     <br />
                     <br />
                     <input type="radio"
+                        className="option-input radio"
                         name="dateSearch"
                         value="between"
                         checked={props.betweenRadio}
                         onChange={props.handleChange}
                     /> Between: &nbsp;
                         <input type="number" min="1900" max="2020" id="betweenStartingYearSearch" name="betweenStartingYearSearch" onChange={props.handleChange} value={props.betweenStartYear} disabled />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                         <input type="number" min="1900" max="2020" id="betweenEndingYearSearch" name="betweenEndingYearSearch" onChange={props.handleChange} value={props.betweenEndYear} disabled />
                 </div>
                 <br />
@@ -47,6 +50,7 @@ function FilterComponent(props) {
                 <label>Ratings</label>
                 <br />
                 <input type="radio"
+                    className="option-input radio"
                     name="ratingSearch"
                     value="below"
                     checked={props.belowRadio}
@@ -56,6 +60,7 @@ function FilterComponent(props) {
                 <input type="range" min="1" max="10" name="belowRating" value={props.belowSlider} onChange={props.handleChange} className="slider" id="belowRating"></input>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio"
+                        className="option-input radio"
                         name="ratingSearch"
                         value="above"
                         checked={props.aboveRadio}
@@ -65,6 +70,7 @@ function FilterComponent(props) {
                         <input type="range" min="1" max="10" name="aboveRating" value={props.aboveSlider} onChange={props.handleChange} className="slider" id="aboveRating" disabled></input>
                     <br/>
                     <input type="radio"
+                        className="option-input radio"
                         name="ratingSearch"
                         value="betweenRatings"
                         checked={props.betweenRatingRadio}

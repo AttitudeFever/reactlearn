@@ -222,7 +222,7 @@ class Main extends React.Component {
 
                     <FilterContainter movieData={this.state.movieData} getFilterResult={this.getFilterResult}
                         setListAllFLAG={this.setListAllFLAG} />
-
+                    
                     <AllMovieList movieData={this.state.movieData} searchValue={this.props.searchValue}
                         searchFLAG={this.props.searchFLAG} listAllFLAG={this.props.listAllFLAG}
                         sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} sortByRatings={this.sortByRatings}

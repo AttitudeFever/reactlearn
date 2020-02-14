@@ -53,16 +53,20 @@ class AllMovieList extends React.Component {
     //     }
     // }
 
+
+
     render() {
         this.conditionalRendering();
         return (
-            <div>
+            <div className="listContainer" id="listContainer">
                 <div className="buttonPack">
+                
                     <button onClick={this.props.sortByTitle}>Title</button>
                     <button onClick={this.props.sortByYear}>Year</button>
                     <button onClick={this.props.sortByRatings}>Ratings</button>
+                    
                 </div>
-                <div className="list">
+                <div className="list" id="list">
                     {
                         renderThis
                     }

@@ -25,7 +25,9 @@ class FilterContainer extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClear = this.handleClear.bind(this);
+        this.filterPopup = this.filterPopup.bind(this);
     }
+
 
     handleChange(e){
         const {name, value} = e.target;
@@ -175,6 +177,25 @@ class FilterContainer extends React.Component {
         this.props.setListAllFLAG();
     }
 
+    filterPopup(){
+        const btnFilter = document.querySelector('#btnFilter');
+        const filter =document.querySelector('#filter');
+        const listContainer = document.querySelector('#listContainer');
+
+        if(btnFilter.textContent === "Filter") {
+            btnFilter.innerHTML = "Close<i class='fa fa-close'></i>";
+            filter.style.width = 400+"px";
+            // listContainer.style.width = "60%";
+
+        }
+
+        else if(btnFilter.textContent === "Close"){
+            btnFilter.innerHTML = "Filter<i class='fa fa-filter'></i>";
+            filter.style.width = 80+"px";
+            // listContainer.style.width = "100%";
+        }
+    }
+
     render() {
         return (
             <FilterComponent titleSearch={this.state.titleSearch} handleChange={this.handleChange} 
@@ -184,7 +205,8 @@ class FilterContainer extends React.Component {
             belowRadio={this.state.belowRadio} aboveRadio={this.state.aboveRadio} 
             betweenRatingRadio={this.state.betweenRatingRadio} belowSlider={this.state.belowSlider} 
             aboveSlider={this.state.aboveSlider} betweenStartSlider={this.state.betweenStartSlider}
-            betweenEndSlider={this.state.betweenEndSlider} handleClear={this.handleClear}/>
+            betweenEndSlider={this.state.betweenEndSlider} handleClear={this.handleClear}
+            filterPopup={this.filterPopup}/>
         )
     }
 }
