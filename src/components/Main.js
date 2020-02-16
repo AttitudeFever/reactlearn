@@ -28,6 +28,7 @@ class Main extends React.Component {
         this.getFilterResult = this.getFilterResult.bind(this);
         this.setFilterFLAG = this.setFilterFLAG.bind(this);
         this.setListAllFLAG = this.setListAllFLAG.bind(this);
+        this.doSort = this.doSort.bind(this);
     }
 
     componentDidMount(){
@@ -209,6 +210,13 @@ class Main extends React.Component {
         this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG) 
     }
 
+    doSort(e){
+        const value = e.target.value;
+        if (value === "sortByTitle") {this.sortByTitle()}
+        else if(value === "sortByYear") {this.sortByYear()}
+        else if (value === "sortByRating") {this.sortByRatings()}
+    }
+
 
     render() {
         const rederThis = this.state.isLoading ?
@@ -226,7 +234,7 @@ class Main extends React.Component {
                     <AllMovieList movieData={this.state.movieData} searchValue={this.props.searchValue}
                         searchFLAG={this.props.searchFLAG} listAllFLAG={this.props.listAllFLAG}
                         sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} sortByRatings={this.sortByRatings}
-                        addToFav={this.addToFav}
+                        doSort={this.doSort} addToFav={this.addToFav}
                         filterResult={this.state.filterResult} filterFLAG={this.props.filterFLAG} />
                 {/* </div> */}
             </div>

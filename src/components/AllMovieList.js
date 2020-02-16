@@ -17,7 +17,9 @@ class AllMovieList extends React.Component {
             })
             
             if (found.length === 0){
-            renderThis = <p>Search Result For "{this.props.searchValue}" Not Found! Try Search Again.</p>
+            renderThis = <p className="noResult">Search Result For "{this.props.searchValue}" Not Found! Try Search Again.
+                <br/>Or Try Filter option
+            </p>
             }
             else {
                 renderThis = found.map((item, index) => {
@@ -33,7 +35,7 @@ class AllMovieList extends React.Component {
         else if (this.props.filterFLAG) {
 
             if (this.props.filterResult.length === 0) {
-                renderThis = <p>No Matches Found! Try Again With Better Filtering.</p>
+                renderThis = <p className="noResult">No Matches Found! Try Again With Better Filtering.</p>
             }
             else {
                 renderThis = this.props.filterResult.map((item, index) => {
@@ -43,28 +45,16 @@ class AllMovieList extends React.Component {
         }
     }
 
-    // shouldComponentUpdate(){
-    //     if (this.props.filterFLAG || this.props.listAllFLAG || this.props.searchFLAG) {
-    //         console.log(this.props.filterFLAG, this.props.listAllFLAG, this.props.searchFLAG)
-    //         return true;
-    //     }
-    //     else{
-    //         return false;
-    //     }
-    // }
-
-
-
     render() {
         this.conditionalRendering();
         return (
             <div className="listContainer" id="listContainer">
-                <div className="buttonPack">
-                
-                    <button onClick={this.props.sortByTitle}>Title</button>
-                    <button onClick={this.props.sortByYear}>Year</button>
-                    <button onClick={this.props.sortByRatings}>Ratings</button>
-                    
+                <div className="fa fa-sort-amount-asc" id="sort">
+                    <select onChange={this.props.doSort}>
+                        <option className="option" value="sortByTitle">Title</option>
+                        <option className="option" value="sortByYear">Year</option>
+                        <option className="option" value="sortByRating">Rating</option>
+                    </select>
                 </div>
                 <div className="list" id="list">
                     {

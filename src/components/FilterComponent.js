@@ -42,7 +42,7 @@ function FilterComponent(props) {
                         onChange={props.handleChange}
                     /> Between: &nbsp;
                         <input type="number" min="1900" max="2020" id="betweenStartingYearSearch" name="betweenStartingYearSearch" onChange={props.handleChange} value={props.betweenStartYear} disabled />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    &nbsp;&nbsp;&nbsp;&nbsp;And&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                         <input type="number" min="1900" max="2020" id="betweenEndingYearSearch" name="betweenEndingYearSearch" onChange={props.handleChange} value={props.betweenEndYear} disabled />
                 </div>
                 <br />
@@ -59,6 +59,7 @@ function FilterComponent(props) {
                 &nbsp;&nbsp;
                 <input type="range" min="1" max="10" name="belowRating" value={props.belowSlider} onChange={props.handleChange} className="slider" id="belowRating"></input>
                 &nbsp;&nbsp;&nbsp;&nbsp;
+                <br/>
                     <input type="radio"
                         className="option-input radio"
                         name="ratingSearch"
@@ -80,8 +81,10 @@ function FilterComponent(props) {
                     &nbsp;&nbsp;
                         <input type="range" min="1" max="10" name="betweenEndRating" value={props.betweenEndSlider} onChange={props.handleChange} className="slider" id="betweenEndRating" disabled></input>
                 </div>
-                <button onClick={props.handleSubmit}>Search</button>
-                <button onClick={props.handleClear}>Clear</button>
+                <div className="actionButtons">
+                    <button className="search" onClick={props.handleSubmit}>Search</button>
+                    <button className="clear" onClick={props.handleClear}>Clear</button>
+                </div>
             </form>
 
         </div>

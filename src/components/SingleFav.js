@@ -11,11 +11,11 @@ class SingleFav extends React.Component {
         this.props.deleteFavItem(this.props.id)
     }
     render() {
-        const poster = "https://image.tmdb.org/t/p/w92" + this.props.poster;
+        const poster = "https://image.tmdb.org/t/p/w154" + this.props.poster;
         return (
-            <div>
+            <div className="singleFav">
                 <img src={poster} alt={this.props.title} />
-                <button onClick={this.deleteFavItem}>Delete</button>
+                <button id="btnDelete" className="fa fa-close" onClick={this.deleteFavItem}></button>
             </div>
         )
     }
