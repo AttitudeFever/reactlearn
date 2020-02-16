@@ -180,17 +180,20 @@ class FilterContainer extends React.Component {
     filterPopup(){
         const btnFilter = document.querySelector('#btnFilter');
         const filter =document.querySelector('#filter');
+        const form =document.querySelector('#form');
 
         if(btnFilter.textContent === "Filter") {
             btnFilter.innerHTML = "Close<i class='fa fa-close'></i>";
-            filter.style.width = 400+"px";
+            filter.style.width = 410+"px";
             filter.style.height = 550+"px";
+            form.style.opacity =1;
         }
 
         else if(btnFilter.textContent === "Close"){
             btnFilter.innerHTML = "Filter<i class='fa fa-filter'></i>";
             filter.style.width = 100+"px";
             filter.style.height = 45+"px";
+            form.style.opacity =0;
         }
     }
 

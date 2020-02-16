@@ -1,8 +1,7 @@
 
 /* //////////////////////////////////////// Home Page /////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
-main{
-    background-color: white; /* Used if the image is unavailable */
-  /* height: 1300px; */
+.main{
+
 }
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 
@@ -12,10 +11,18 @@ main{
 
     background-image: url('./theater2.jpg');
     background-color: black; /* Used if the image is unavailable */
-    height: 1000px; /* You must set a specified height */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: 50% 50%; 
+    height: 753px;
+}
+
+.homeMain{
+  position: absolute;
+  top:-2%;
+  left:30%;
 }
 
 .heading{
@@ -40,23 +47,45 @@ main{
   float: left;
 }
 
-.fade-enter {
-    opacity: 0.01;
-  }
-  
-  .fade-enter.example-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-  }
-  
-  .fade-leave {
-    opacity: 1;
-  }
-  
-  .fade-leave.example-leave-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
-  }
+.buttonPackHome{
+margin-top: -20px;
+}
+
+.aboutusHome{
+  font-size: 15px;
+  padding: 5px;
+  border: 0px solid;
+  text-shadow: 1px 1px 2px #153b4b;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  border-radius: 20px;
+  margin-left: 10px;
+}
+
+.aboutusHome:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #153b4b; 
+}
+
+.AllHome{
+  font-size: 15px;
+  text-shadow: 1px 1px 2px #153b4b;
+  padding: 5px;
+  border: 0 solid;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  border-radius: 20px;
+  margin-left: 10px;
+}
+
+.AllHome:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #153b4b; 
+}
 
 
     .searchbar{
@@ -103,7 +132,7 @@ main{
     text-decoration:none;
     }
 
-    .btn {
+    /* .btn {
       font-family: 'Open Sans', sans-serif;
         color: #fff;
         background-color: transparent;
@@ -162,7 +191,7 @@ main{
         outline-color: rgba(255, 255, 255, 0);
         outline-offset: 15px;
         text-shadow: 1px 1px 2px #153b4b; 
-      }
+      }  */
 
       .about{
         padding: 5px;
@@ -170,9 +199,6 @@ main{
         text-shadow: none;
         transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
         border-radius: 20px;
-        /* float: right; */
-        /* margin-top:-40px;
-        margin-right: 200px; */
       }
       
       .about:hover {
@@ -289,9 +315,16 @@ main{
     border: 1px solid;
     box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
     outline-color: rgba(255, 255, 255, 0);
+    opacity: 1;
   }
 
-
+  .fadeb-enter{
+    opacity: 0.01;
+  }
+  .fadeb-enter.fadeb-enter-active{
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
 
 .fade-appear{
   opacity: 0.01;
@@ -301,27 +334,24 @@ main{
   transition: opacity 1000ms ease-in;
 }
 
-.fade-enter{
+.fade-enter {
   opacity: 0.01;
 }
 
-.fade-enter.fade-enter-active{
+.fade-enter.fade-enter-active {
   opacity: 1;
   transition: opacity 1000ms ease-in;
 }
 
-.fade-leave{
+.fade-leave {
   opacity: 1;
 }
 
-.fade-leave.fade-leave-active{
+.fade-leave.fade-leave-active {
   opacity: 0.01;
-  transition: opacity 1000ms ease-out;
+  transition: opacity 300ms ease-in;
 }
 
-.fade-leave-done{
-  opacity: 0.01;
-}
 
   #btnDelete{
     background-color: white;
@@ -394,6 +424,7 @@ main{
         box-shadow: inset 0 0 20px rgba(123, 30, 177, 0.5), 0 0 20px rgba(17, 228, 228, 0.2);
         outline-color: rgba(255, 255, 255, 0);
         outline-offset: 15px;
+        /* overflow-x: scroll; */
       }
 
       .filter {
@@ -410,7 +441,7 @@ main{
         transition: width 2s ease-in-out;
         width: 100%;
         overflow-y: scroll;
-        height: 550px;
+        height: 620px;
         border: 1px solid;
         box-shadow: inset 0 0 20px rgba(123, 30, 177, 0.5), 0 0 20px rgba(17, 228, 228, 0.2);
         outline-color: rgba(255, 255, 255, 0);
@@ -435,9 +466,19 @@ main{
         outline-offset: 15px;
       }
 
+      #form{
+        opacity: 0;
+      }
+
+      #form h1, #form label{
+        text-shadow: 1px 1px 2px #153b4b;
+        /* color: rgba(17, 228, 228, 1); */
+        color: white;
+      }
+
       #btnFilter{
         float: right;
-        margin-right: 10px;
+        margin-right: 15px;
         margin-top: 5px;
         padding: 5px;
         border: 0 solid;

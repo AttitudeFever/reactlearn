@@ -221,11 +221,10 @@ class Main extends React.Component {
     render() {
         const rederThis = this.state.isLoading ?
             <p>Loading....</p>
-            :
-            // <div>
-                
+            :                
                 <div className="grid-container">
                     <Header />
+                    
                     <FavList favList={this.state.favList} deleteFavItem={this.deleteFavItem} />
 
                     <FilterContainter movieData={this.state.movieData} getFilterResult={this.getFilterResult}
@@ -236,7 +235,6 @@ class Main extends React.Component {
                         sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} sortByRatings={this.sortByRatings}
                         doSort={this.doSort} addToFav={this.addToFav}
                         filterResult={this.state.filterResult} filterFLAG={this.props.filterFLAG} />
-                {/* </div> */}
             </div>
         return (
             rederThis

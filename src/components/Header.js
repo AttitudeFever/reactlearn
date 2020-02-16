@@ -10,10 +10,10 @@ function Header() {
             <h1 className="heading2">WELCOME TO MRU MOVIE COLLECTION</h1>
             <div className="buttonPack">
                 <Link to='/'>
-                    <button className="home">Home &nbsp;&nbsp;<i className="fa fa-home"></i></button> 
+                    <button className="home">Home <i className="fa fa-home"></i></button> 
                 </Link>
                 <Link to='/about'>
-                    <button className="about">About Us &nbsp;&nbsp;<i className="fa fa-group"></i></button>
+                    <button className="about">About Us <i className="fa fa-group"></i></button>
                 </Link>
             </div>
         </div>

@@ -1,5 +1,7 @@
 import React from 'react'
 import SingleFav from './SingleFav';
+//import CSSTransitionGroup from 'react-addons-css-transition-group'
+//import { CSSTransitionGroup } from 'react-transition-group'
 
 
 class FavList extends React.Component {
@@ -15,25 +17,30 @@ class FavList extends React.Component {
         if (btnFavorite.textContent === "Favorites") {
             btnFavorite.innerHTML = "Close<i class='fa fa-close'></i>";
             favs.style.width = "auto";
-            favs.style.height = 150 + "px";
+            favs.style.height = 160 + "px";
+            favs.style.overflowX = "scroll";
         }
 
         else if (btnFavorite.textContent === "Close") {
             btnFavorite.innerHTML = "Favorites<i class='fa fa-heart'></i>";
             favs.style.width = 120 + "px";
             favs.style.height = 52 + "px";
+            favs.style.overflow = "hidden";
         }
     }
 
+ 
     render() {
+        
         return (
+            
             <div className="favs" id="favs">
                 <button id="btnFavorite" onClick={this.favPopup}>Favorites<i className="fa fa-heart"></i></button>
                 {
                     this.props.favList.map((item, index) => {
                         return <SingleFav key={index} id={item.id} title={item.title} poster={item.poster} deleteFavItem={this.props.deleteFavItem} />
                             
-                    })
+                    })                    
                 }
             </div>
         )

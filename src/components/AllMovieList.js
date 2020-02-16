@@ -1,5 +1,7 @@
 import React from 'react'
 import SingleMovieBrief from './SingleMovieBrief';
+//import CSSTransitionGroup from 'react-addons-css-transition-group'
+import { CSSTransitionGroup } from 'react-transition-group'
 
 let renderThis;
 class AllMovieList extends React.Component {
@@ -58,7 +60,12 @@ class AllMovieList extends React.Component {
                 </div>
                 <div className="list" id="list">
                     {
-                        renderThis
+                        <CSSTransitionGroup
+                            transitionName="fadeb"
+                            transitionEnterTimeout={500}
+                            transitionLeaveTimeout={0}>
+                            {renderThis}
+                        </CSSTransitionGroup>
                     }
                 </div>
             </div>
