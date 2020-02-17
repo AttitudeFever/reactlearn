@@ -5,9 +5,9 @@ function Header() {
     return (
         <div className="header">
             <Link to='/'>
-                <img className="logo" src="../logo.png" alt="MRU Theater Logo" />
+                <img className="logo" src="../logo2.png" alt="MRU Theater Logo" />
             </Link>
-            <h1 className="heading2">WELCOME TO MRU MOVIE COLLECTION</h1>
+            <h1 className="heading2">WELCOME TO HM's MOVIE COLLECTION</h1>
             <div className="buttonPack">
                 <Link to='/'>
                     <button className="home">Home <i className="fa fa-home"></i></button> 

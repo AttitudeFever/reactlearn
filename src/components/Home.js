@@ -39,7 +39,7 @@ class Home extends React.Component {
                 <div className="hero-image"></div>
                 <div className="homeMain">
                     <h1 className="heading">MRU Movie Collection
-                        <img className="logo2" src="./logo.png" alt="MRU Theater Logo" />
+                        <img className="logo2" src="./logo2.png" alt="MRU Theater Logo" />
                         <div className="buttonPackHome" >
                             <Link to='/about'>
                                 <button className="aboutusHome">About Us <i className="fa fa-group"></i></button>

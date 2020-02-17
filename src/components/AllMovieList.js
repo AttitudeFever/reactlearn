@@ -19,7 +19,7 @@ class AllMovieList extends React.Component {
             })
             
             if (found.length === 0){
-            renderThis = <p className="noResult">Search Result For "{this.props.searchValue}" Not Found! Try Search Again.
+            renderThis = <p className="noResult" id="noResult" >Search Result For "{this.props.searchValue}" Not Found! Try Search Again.
                 <br/>Or Try Filter option
             </p>
             }
@@ -27,6 +27,7 @@ class AllMovieList extends React.Component {
                 renderThis = found.map((item, index) => {
                     return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline}/>
                 })
+                document.getElementById('noResult').style.display="none";
             }
         }
         else if (this.props.listAllFLAG) {
