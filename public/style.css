@@ -993,6 +993,7 @@ button:hover{
     padding: 0px; 
     font-size: 12px;
     list-style-type: none;
+    text-shadow: 1px 1px 2px #153b4b; 
  
 }
 
