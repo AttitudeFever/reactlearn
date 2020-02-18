@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import About from './About';
 
 function Header() {
     return (
@@ -12,9 +13,7 @@ function Header() {
                 <Link to='/'>
                     <button className="home">Home <i className="fa fa-home"></i></button> 
                 </Link>
-                <Link to='/about'>
-                    <button className="about">About Us <i className="fa fa-group"></i></button>
-                </Link>
+                <About/>
             </div>
         </div>
     )

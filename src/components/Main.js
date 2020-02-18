@@ -5,7 +5,6 @@ import FavList from './FavList';
 import FilterContainter from './FilterContainer';
 import * as cloneDeep from 'lodash/cloneDeep';
 
-
 const LOCAL_STORAGE_KEY = 'movieData';
 const LOCAL_STORAGE_KEY_2 = 'favList';
 class Main extends React.Component {
@@ -217,27 +216,22 @@ class Main extends React.Component {
         else if (value === "sortByRating") {this.sortByRatings()}
     }
 
-
     render() {
-        const rederThis = this.state.isLoading ?
-            <p>Loading....</p>
-            :                
-                <div className="grid-container">
-                    <Header />
-                    
-                    <FavList favList={this.state.favList} deleteFavItem={this.deleteFavItem} />
-
-                    <FilterContainter movieData={this.state.movieData} getFilterResult={this.getFilterResult}
-                        setListAllFLAG={this.setListAllFLAG} />
-                    
-                    <AllMovieList movieData={this.state.movieData} searchValue={this.props.searchValue}
-                        searchFLAG={this.props.searchFLAG} listAllFLAG={this.props.listAllFLAG}
-                        sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} sortByRatings={this.sortByRatings}
-                        doSort={this.doSort} addToFav={this.addToFav}
-                        filterResult={this.state.filterResult} filterFLAG={this.props.filterFLAG} />
-            </div>
         return (
-            rederThis
+            <div className="grid-container">
+                <Header />
+
+                <FavList favList={this.state.favList} deleteFavItem={this.deleteFavItem} />
+
+                <FilterContainter movieData={this.state.movieData} getFilterResult={this.getFilterResult}
+                    setListAllFLAG={this.setListAllFLAG} />
+
+                <AllMovieList isLoading={this.state.isLoading} movieData={this.state.movieData} searchValue={this.props.searchValue}
+                    searchFLAG={this.props.searchFLAG} listAllFLAG={this.props.listAllFLAG}
+                    sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} sortByRatings={this.sortByRatings}
+                    doSort={this.doSort} addToFav={this.addToFav}
+                    filterResult={this.state.filterResult} filterFLAG={this.props.filterFLAG} />
+            </div>
         )
     }
 }

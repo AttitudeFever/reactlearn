@@ -2,6 +2,7 @@ import React from 'react'
 import SingleMovieBrief from './SingleMovieBrief';
 //import CSSTransitionGroup from 'react-addons-css-transition-group'
 import { CSSTransitionGroup } from 'react-transition-group'
+import loader from './images/loader2.gif';
 
 let renderThis;
 class AllMovieList extends React.Component {
@@ -11,39 +12,41 @@ class AllMovieList extends React.Component {
         this.conditionalRendering = this.conditionalRendering.bind(this);
     }
 
-    conditionalRendering(){
-        if (this.props.searchFLAG) 
-        {
-            const found = this.props.movieData.filter(item => {
-                return item.title.toUpperCase().includes(this.props.searchValue.toUpperCase())
-            })
-            
-            if (found.length === 0){
-            renderThis = <p className="noResult" id="noResult" >Search Result For "{this.props.searchValue}" Not Found! Try Search Again.
-                <br/>Or Try Filter option
-            </p>
-            }
-            else {
-                renderThis = found.map((item, index) => {
-                    return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline}/>
+    conditionalRendering() {
+        if (this.props.isLoading) {
+            renderThis = <p className="isLoading" ><img src={loader} alt="Loading" height="80" width="80"/>Loading API....</p>
+        } else {
+            if (this.props.searchFLAG) {
+                const found = this.props.movieData.filter(item => {
+                    return item.title.toUpperCase().includes(this.props.searchValue.toUpperCase())
                 })
-                document.getElementById('noResult').style.display="none";
-            }
-        }
-        else if (this.props.listAllFLAG) {
-            renderThis = this.props.movieData.map((item, index) => {
-                return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline}/>
-            })
-        }
-        else if (this.props.filterFLAG) {
 
-            if (this.props.filterResult.length === 0) {
-                renderThis = <p className="noResult">No Matches Found! Try Again With Better Filtering.</p>
+                if (found.length === 0) {
+                    renderThis = <p className="noResult" id="noResult" >Search Result For "{this.props.searchValue}" Not Found! Try Search Again.
+                <br />Or Try Filter option
+            </p>
+                }
+                else {
+                    renderThis = found.map((item, index) => {
+                        return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline} />
+                    })
+                }
             }
-            else {
-                renderThis = this.props.filterResult.map((item, index) => {
-                    return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline}/>
+            else if (this.props.listAllFLAG) {
+                renderThis = this.props.movieData.map((item, index) => {
+                    return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline} />
                 })
+            }
+            else if (this.props.filterFLAG) {
+
+                if (this.props.filterResult.length === 0) {
+                    renderThis = <p className="noResult">No Matches Found! Try Again With Better Filtering.</p>
+                }
+                else {
+                    renderThis = this.props.filterResult.map((item, index) => {
+                        return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline} />
+                    })
+                }
             }
         }
     }

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom';
 import Home from './components/Home'
-import About from './components/About'
 import Main from './components/Main'
 
 class App extends React.Component {
@@ -27,11 +26,8 @@ class App extends React.Component {
     
     render(){
         return (
-            <main>
-                <Route path="/about" exact component={About} />
-
+            <main id="main">
                 <Route path="/" exact render={ (props) => <Home getSearchValue={this.getSearchValue} getFLAGS={this.getFLAGS} />}/>
-
                 <Route path="/main" exact render={ (props) => <Main searchValue={this.state.searchValue} 
                     searchFLAG={this.state.searchFLAG} listAllFLAG={this.state.listAllFLAG} 
                     filterFLAG={this.state.filterFLAG} getFLAGS={this.getFLAGS}/>}/>

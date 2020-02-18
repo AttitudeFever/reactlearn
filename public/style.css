@@ -9,7 +9,7 @@
 
 .hero-image{
 
-    background-image: url('./theater2.jpg');
+    background-image: url('./bgAboutus.jpg');
     background-color: black; /* Used if the image is unavailable */
     background-position: center;
     background-repeat: no-repeat; 
@@ -24,7 +24,7 @@
 .homeMain{
   text-align: center;
   position: absolute;
-  top:-2%;
+  top:100px;
   left:25%;
   border: 1px solid;
   box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
@@ -35,19 +35,6 @@
 }
 
 .heading{
-    /* color: violet;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 800;
-    font-size: 30px;
-    letter-spacing: -3px;
-    line-height: 1;
-    text-shadow: blueviolet 3px 2px 0;
-    position: relative;
-    padding-left: 40px; */
-    z-index: 2;
     color: white;
     outline-color: rgba(255, 255, 255, 0);
     text-align: center;
@@ -72,7 +59,9 @@
 }
 
 .buttonPackHome{
-margin-top: -20px;
+  margin-top: -30px;
+  margin-right: 300px;
+  
 }
 
 .aboutusHome{
@@ -83,6 +72,7 @@ margin-top: -20px;
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
   border-radius: 20px;
   margin-left: 10px;
+  float:right; 
 }
 
 .aboutusHome:hover {
@@ -101,6 +91,7 @@ margin-top: -20px;
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
   border-radius: 20px;
   margin-left: 10px;
+  float:right; 
 }
 
 .AllHome:hover {
@@ -111,18 +102,28 @@ margin-top: -20px;
   text-shadow: 1px 1px 2px #153b4b; 
 }
 
-
+.SBox{
+  margin-top: 50px;
+  text-align: center;
+}
     .searchbar{
     margin-bottom: auto;
     margin: 0px;
     height: 60px;
-    background-color: #353b48;
+    background-color: white;
     border-radius: 30px;
     padding: 10px;
+
+    box-sizing: border-box;
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #153b4b; 
     }
 
     .search_input{
-    color: white;
+    color: #153b4b;
     border: 0;
     outline: 0;
     background: none;
@@ -137,10 +138,11 @@ margin-top: -20px;
     width: 450px;
     caret-color:fuchsia;
     transition: width 0.4s linear;
+    text-shadow: 1px 1px 2px #153b4b; 
     }
 
     .searchbar:hover > .search_icon{
-    background: white;
+    background: #153b4b;
     color: fuchsia;
     }
 
@@ -152,70 +154,9 @@ margin-top: -20px;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    color:white;
+    color:#153b4b;
     text-decoration:none;
     }
-
-    /* .btn {
-      font-family: 'Open Sans', sans-serif;
-        color: #fff;
-        background-color: transparent;
-        cursor: pointer;
-        font-size:16px;
-        font-weight: 400;
-        line-height: 45px;
-        margin: 0 0 2em;
-        max-width: 200px; 
-        text-decoration: none;
-        text-transform: uppercase;
-        width: 100%; 
-        border-radius: 20px;
-        @media(min-width: 500px) {
-
-            margin: 0 1em 2em;
-        }
-        
-    }
-
-    .btn-5 {
-        border: 0 solid;
-        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-        outline: 1px solid;
-        outline-color: rgba(123, 30, 177, 0.5);
-        outline-offset: 0px;
-        text-shadow: none;
-        transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-        border-radius: 20px;
-        margin-left: 10px;
-      } 
-      
-      .btn-5:hover {
-        border: 1px solid;
-        box-shadow: inset 0 0 20px rgba(123, 30, 177, 0.5), 0 0 20px rgba(17, 228, 228, 0.2);
-        outline-color: rgba(255, 255, 255, 0);
-        outline-offset: 15px;
-        text-shadow: 1px 1px 2px #153b4b; 
-      }
-
-      .btn-6 {
-        border: 0 solid;
-        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-        outline: 1px solid;
-        outline-color: rgba(123, 30, 177, 0.5);
-        outline-offset: 0px;
-        text-shadow: none;
-        transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-        border-radius: 20px;
-        margin-right: 10px;
-      } 
-      
-      .btn-6:hover {
-        border: 1px solid;
-        box-shadow: inset 0 0 20px rgba(123, 30, 177, 0.5), 0 0 20px rgba(17, 228, 228, 0.2);
-        outline-color: rgba(255, 255, 255, 0);
-        outline-offset: 15px;
-        text-shadow: 1px 1px 2px #153b4b; 
-      }  */
 
       .about{
         padding: 5px;
@@ -223,6 +164,7 @@ margin-top: -20px;
         text-shadow: none;
         transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
         border-radius: 20px;
+        float:left;
       }
       
       .about:hover {
@@ -239,14 +181,20 @@ margin-top: -20px;
         text-shadow: none;
         transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
         border-radius: 20px;
-        margin-right: 50px;
+        /* margin-right: 50px; */
+        float: left;;
       }
 
       .buttonPack{
-        float: right;
-        top: -40px;
         position: relative;
-        padding-right: 50px;
+        top: -40px;
+        left: 550px;
+        /* border: 5px solid; */
+        width: 200px;
+        height: 50px;
+        display:inline-block;
+        margin-right: -50px;
+
 
       }
       
@@ -350,6 +298,14 @@ margin-top: -20px;
     transition: opacity 500ms ease-in;
   }
 
+  .fadeb-leave{
+    opacity: 1;
+  }
+  .fadeb-leave.fadeb-leave-active{
+    opacity: 0.01;
+    transition: opacity 0ms ease-in;
+  }
+
 .fade-appear{
   opacity: 0.01;
 }
@@ -411,10 +367,10 @@ margin-top: -20px;
             "header header"      
             "fav  fav"
             "filter list";
-            background-image: url('./theater.jpg');
-            /* background-size: cover;
+            background-image: url('./bgAboutus.jpg');
+            background-size: cover;
             background-repeat: no-repeat;
-            background-position: 50% 50%; */
+            background-position: 50% 50%;
             /* filter: blur(8px);
             -webkit-filter: blur(8px); */
       }
@@ -457,8 +413,8 @@ margin-top: -20px;
         float: left;
         grid-area: filter;
         transition: width 2s;
-        width: 100px;
         overflow: hidden;
+        width: 100px;
         height: 45px;
       }
 
@@ -482,6 +438,9 @@ margin-top: -20px;
         top:-60px;
       }
 
+      .isLoading{
+        text-shadow: 1px 1px 2px #153b4b; 
+      }
       /* //////////////////////////////////////////////////////////////////////////////Filter///////////////////////////////// */
       .filter {
         font-family: 'Fredericka the Great', cursive;
@@ -498,7 +457,6 @@ margin-top: -20px;
 
       #form h1, #form label{
         text-shadow: 1px 1px 2px #153b4b;
-        /* color: rgba(17, 228, 228, 1); */
         color: white;
       }
 
@@ -617,7 +575,6 @@ margin-top: -20px;
         margin-right: 0.5rem;
         outline: none;
         position: relative;
-        z-index: 1000;
       }
 
 .option-input:hover {
@@ -647,7 +604,6 @@ margin-top: -20px;
   content: '';
   display: block;
   position: relative;
-  z-index: 100;
 }
 .option-input.radio {
   border-radius: 50%;
@@ -724,7 +680,6 @@ input[type=range]::-ms-track {
   width: 100%;
   height: 7px;
   cursor: pointer;
-  animate: 0.2s;
   background: transparent;
   border-color: transparent;
   color: transparent;
@@ -942,7 +897,6 @@ cursor: crosshair;
   background-color: white;
   color: red;
   cursor: pointer;
-  /* box-shadow: 0 8px 30px rgba(150, 11, 11, 0.1), 0 8px 8px rgba(218, 48, 48, 0.18); */
 }
 
 button:hover{
@@ -973,14 +927,110 @@ button:hover{
 
 /* /////////////////////////////////////////////About us///////////////////////////////////////////////// */
 
+/* ///////////////////////////Tranisiton for popup react model////////////////// */
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 2000ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+}
+
+/* .ReactModal__Body--open {
+  overflow-y: hidden;
+} */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.aboutBody{
+  /* position: absolute;
+  top:-0px;
+ left: 100px; */
+}
+.heading3{
+    color: white;
+    outline-color: rgba(255, 255, 255, 0);
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: -3px;
+    line-height: 1;
+    position: relative;
+    padding-left: 40px;
+    top:0px;
+    text-shadow: 1px 1px 2px #153b4b; 
+}
+
 .aboutUs{
   text-align: center;
 }
 
 .persons{
   display: inline-block;
-  padding: 20px;
+  /* padding: 10px; */
+  /* border: 10px solid; */
+  margin-left: 280px;
+  margin-top: -30px;
 }
+
+.projectInfo{
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+}
+
+.projectInfo > p, .projectInfo > ul,  .projectInfo > ul > li{
+    /* font-family: 'Fredericka the Great', cursive; */
+    text-align: center;
+    padding: 0px; 
+    font-size: 12px;
+    list-style-type: none;
+ 
+}
+
+.pih{
+  color: white;
+  outline-color: rgba(255, 255, 255, 0);
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 30px;
+  letter-spacing: -3px;
+  line-height: 1;
+  position: relative;
+  padding-left: 40px;
+  top:0px;
+  text-shadow: 1px 1px 2px #153b4b; 
+}
+
+.projectInfo > ul > li > a, .projectInfo > p > a {
+  color:white;
+  text-decoration:  none;
+  padding: 5px;
+  border: 0 solid;
+  text-shadow: none;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  border-radius: 20px;
+}
+
+.projectInfo > ul > li > a:hover, .projectInfo > p > a:hover{
+  text-decoration:  none;
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+}
+
 .cardP {
   transition: 0.3s;
   width: 300px;
@@ -1030,4 +1080,27 @@ cursor: crosshair;
 /* Add some padding inside the card container */
 .containerP {
   padding: 2px 16px;
+}
+
+#close{
+  background-color: white;
+  color: #ff3d49;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 40%;
+  font-size: 20px;
+  text-align: center;
+}
+
+#close:hover {
+  background-color: #ff3d49;
+  color: white;
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #153b4b; 
 }
