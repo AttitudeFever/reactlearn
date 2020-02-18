@@ -92,8 +92,9 @@ class About extends React.Component {
                             <li><a href="https://unsplash.com" target="_blank">Awesome Backgroud Image</a></li>
                                 <li><a href="https://bootsnipp.com/snippets/GaeQR" target="_blank">Search Box on Home Page Design</a></li>
                                 <li><a href="https://www.freelogodesign.org/" target="_blank">Free Logo Design</a></li>
+                                <li><a href="https://loading.io/" target="_blank">Free Loading gif</a></li>
                                 <li><a href="https://freefrontend.com/css-cards/" target="_blank">Contact Card Ideas</a></li>
-                                <li><a href="https://www.youtube.com/watch?v=BZRyIOrWfHU&t=773s" target="_blank">React CSS Trasnition Tutorial</a></li>
+                                <li><a href="https://www.youtube.com/watch?v=BZRyIOrWfHU&t=773s" target="_blank">React CSS Transition Tutorial</a></li>
                             </ul>
                         </div>
                         <button id="close" className="fa fa-close" onClick={this.handleCloseModal}></button>
