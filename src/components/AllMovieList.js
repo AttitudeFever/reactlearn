@@ -9,7 +9,7 @@ let renderThis;
 class AllMovieList extends React.Component {
     constructor(){
         super()
-        this.state={ 
+        this.state={
             viewID : 0
         }
         this.conditionalRendering = this.conditionalRendering.bind(this);
@@ -54,13 +54,13 @@ class AllMovieList extends React.Component {
                 }
             }
             else if (this.props.viewFLAG){
-                renderThis = <MovieView viewID={this.state.viewID} getFLAGS={this.props.getFLAGS}/>
+                renderThis = <MovieView viewID={this.state.viewID} getFLAGS={this.props.getFLAGS} addToFav={this.props.addToFav}/>
             }
         }
     }
 
     getViewID(id){
-        this.setState( {viewID : id}) 
+        this.setState( {viewID : id})
         document.getElementById('filter').style.display = "none";
         document.getElementById('sort').style.display = "none";
         this.setViewFLAG()
@@ -71,7 +71,7 @@ class AllMovieList extends React.Component {
         let listAllFLAG = false;
         let FilterFLAG = false;
         let viewFLAG = true;
-        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG) 
+        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG)
     }
 
     render() {
