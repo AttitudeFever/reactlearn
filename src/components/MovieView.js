@@ -26,7 +26,7 @@ class MovieView extends React.Component {
         let listAllFLAG = true;
         let FilterFLAG = false;
         let viewFLAG = false;
-        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG) 
+        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG)
     }
 
     async componentDidMount(){
@@ -45,8 +45,8 @@ class MovieView extends React.Component {
 
     conditionalRendering(){
         renderThis = this.state.isLoading ? <p className="isLoading" ><img src={loader} alt="Loading" height="80" width="80"/>Loading API....</p>
-        : 
-        <SingleMovieDetail viewData={this.state.viewData}/>
+        :
+        <SingleMovieDetail viewData={this.state.viewData} addToFav={this.props.addToFav}/>
     }
 
     render() {
