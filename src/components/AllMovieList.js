@@ -3,13 +3,18 @@ import SingleMovieBrief from './SingleMovieBrief';
 //import CSSTransitionGroup from 'react-addons-css-transition-group'
 import { CSSTransitionGroup } from 'react-transition-group'
 import loader from './images/loader2.gif';
+import MovieView from './MovieView';
 
 let renderThis;
 class AllMovieList extends React.Component {
     constructor(){
         super()
-        this.state={}
+        this.state={ 
+            viewID : 0
+        }
         this.conditionalRendering = this.conditionalRendering.bind(this);
+        this.getViewID = this.getViewID.bind(this);
+        this.setViewFLAG = this.setViewFLAG.bind(this);
     }
 
     conditionalRendering() {
@@ -28,13 +33,13 @@ class AllMovieList extends React.Component {
                 }
                 else {
                     renderThis = found.map((item, index) => {
-                        return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline} />
+                        return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline} getViewID={this.getViewID}/>
                     })
                 }
             }
             else if (this.props.listAllFLAG) {
                 renderThis = this.props.movieData.map((item, index) => {
-                    return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline} />
+                    return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline} getViewID={this.getViewID}/>
                 })
             }
             else if (this.props.filterFLAG) {
@@ -44,11 +49,29 @@ class AllMovieList extends React.Component {
                 }
                 else {
                     renderThis = this.props.filterResult.map((item, index) => {
-                        return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline} />
+                        return <SingleMovieBrief key={index} poster={item.poster} title={item.title} release_date={item.release_date} ratings={item.ratings.average} addToFav={this.props.addToFav} id={item.id} tagline={item.tagline} getViewID={this.getViewID}/>
                     })
                 }
             }
+            else if (this.props.viewFLAG){
+                renderThis = <MovieView viewID={this.state.viewID} getFLAGS={this.props.getFLAGS}/>
+            }
         }
+    }
+
+    getViewID(id){
+        this.setState( {viewID : id}) 
+        document.getElementById('filter').style.display = "none";
+        document.getElementById('sort').style.display = "none";
+        this.setViewFLAG()
+    }
+
+    setViewFLAG(){
+        let searchFLAG = false;
+        let listAllFLAG = false;
+        let FilterFLAG = false;
+        let viewFLAG = true;
+        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG) 
     }
 
     render() {
@@ -64,12 +87,12 @@ class AllMovieList extends React.Component {
                 </div>
                 <div className="list" id="list">
                     {
-                        <CSSTransitionGroup
-                            transitionName="fadeb"
-                            transitionEnterTimeout={500}
-                            transitionLeaveTimeout={0}>
-                            {renderThis}
-                        </CSSTransitionGroup>
+                        // <CSSTransitionGroup
+                        //     transitionName="fadeb"
+                        //     transitionEnterTimeout={500}
+                        //     transitionLeaveTimeout={1}>
+                            renderThis
+                        // </CSSTransitionGroup>
                     }
                 </div>
             </div>

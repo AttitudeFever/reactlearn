@@ -23,7 +23,8 @@ class Home extends React.Component {
         let searchFLAG = true;
         let listAllFLAG = false;
         let FilterFLAG = false;
-        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG);
+        let viewFLAG = false;
+        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG);
         this.props.getSearchValue(this.state.searchValue);
     }
 
@@ -31,7 +32,8 @@ class Home extends React.Component {
         let searchFLAG = false;
         let listAllFLAG = true;
         let FilterFLAG = false;
-        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG)
+        let viewFLAG = false;
+        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG)
     }
 
     render() {

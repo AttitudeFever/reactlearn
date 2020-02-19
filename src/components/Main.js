@@ -199,14 +199,16 @@ class Main extends React.Component {
         let searchFLAG = false;
         let listAllFLAG = false;
         let filterFLAG = true;
-        this.props.getFLAGS(searchFLAG, listAllFLAG, filterFLAG) 
+        let viewFLAG = false;
+        this.props.getFLAGS(searchFLAG, listAllFLAG, filterFLAG, viewFLAG) 
     }
 
     setListAllFLAG(){
         let searchFLAG = false;
         let listAllFLAG = true;
         let FilterFLAG = false;
-        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG) 
+        let viewFLAG = false;
+        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG) 
     }
 
     doSort(e){
@@ -230,7 +232,8 @@ class Main extends React.Component {
                     searchFLAG={this.props.searchFLAG} listAllFLAG={this.props.listAllFLAG}
                     sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} sortByRatings={this.sortByRatings}
                     doSort={this.doSort} addToFav={this.addToFav}
-                    filterResult={this.state.filterResult} filterFLAG={this.props.filterFLAG} />
+                    filterResult={this.state.filterResult} filterFLAG={this.props.filterFLAG} 
+                    viewFLAG={this.props.viewFLAG} getFLAGS={this.props.getFLAGS}/>
             </div>
         )
     }

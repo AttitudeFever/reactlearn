@@ -6,12 +6,16 @@ class SingleMovieBrief extends React.Component {
         super()
         this.state = {}
         this.addToFav = this.addToFav.bind(this);
+        this.captureViewID = this.captureViewID.bind(this);
     }
 
     addToFav() {
         this.props.addToFav(this.props.title, this.props.poster, this.props.id);
     }
 
+    captureViewID() {
+        this.props.getViewID(this.props.id)
+    }
     render() {
         const poster = "https://image.tmdb.org/t/p/w780/" + this.props.poster;
         return (
@@ -29,9 +33,9 @@ class SingleMovieBrief extends React.Component {
                         </div>
                     </div>
                     <p className="card-text">{this.props.tagline}</p>
-                    <a className="trailer-preview" href={" "} >
-                        <i className="fa fa-eye" aria-hidden="true"></i>
-                    </a>
+                    <div className="trailer-preview">
+                        <i className="fa fa-eye" aria-hidden="true" onClick={this.captureViewID}></i>
+                    </div>
                 </div>
             </div>
         )
