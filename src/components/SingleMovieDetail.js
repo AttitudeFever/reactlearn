@@ -1,5 +1,5 @@
 import React from 'react'
-
+/*ISSUES WITH OBJECTS*/
 class SingleMovieDetail extends React.Component {
 
   constructor(props) {
