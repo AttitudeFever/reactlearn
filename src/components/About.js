@@ -84,6 +84,8 @@ class About extends React.Component {
                                 <li><a href="https://www.npmjs.com/package/lodash" target="_blank" rel="noopener noreferrer">lodash 4.17.15</a></li>
                                 <li><a href="https://github.com/reactjs/react-transition-group/tree/v1-stable" target="_blank" rel="noopener noreferrer">react-transition-group v1-stable</a></li>
                                 <li><a href="https://www.npmjs.com/package/react-modal#installation" target="_blank" rel="noopener noreferrer">react-modal 3.11.1</a></li>
+                                <li><a href="https://react.rocks/example/react-rater" target="_blank" rel="noopener noreferrer">react-rater</a></li>
+                                <li><a href="https://reactcommunity.org/react-tabs/" target="_blank" rel="noopener noreferrer">react-tabs</a></li>
                             </ul>
                             <p>Project's Open Source: <a href="https://github.com/AttitudeFever/ReactAppA1" target="_blank" rel="noopener noreferrer">Repository</a></p>
                             <p>Project Depolyment via Heraku Server</p>
