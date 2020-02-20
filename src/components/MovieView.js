@@ -47,14 +47,13 @@ class MovieView extends React.Component {
         renderThis = this.state.isLoading ? <p className="isLoading" ><img src={loader} alt="Loading" height="80" width="80"/>Loading API....</p>
         :
         <SingleMovieDetail viewData={this.state.viewData} addToFav={this.props.addToFav}/>
-        //<SMD2 viewData={this.state.viewData} addToFav={this.props.addToFav}/>
     }
 
     render() {
         this.conditionalRendering();
         return (
             <div>
-                <button id="close" className="fa fa-close" onClick={this.handleCloseMovieView}></button>
+                <button id="closeM" className="fa fa-close" onClick={this.handleCloseMovieView}></button>
                 { renderThis }
             </div>
         )

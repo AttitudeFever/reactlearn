@@ -1,9 +1,10 @@
 import React from 'react';
 import './static/singlemoviedetail.css';
-import 'react-rater/lib/react-rater.css';
+//import 'react-rater/lib/react-rater.css';
 import Rater from 'react-rater';
 import ReactModal from 'react-modal';
 import bgImg from './images/bgAboutus.jpg';
+import TabCastCrew from './TabCastCrew';
 
 const customStyles = {
     content: {
@@ -29,10 +30,14 @@ class Singlemoviedetail extends React.Component {
             showModal: false,
             ratings:[],
             details:[],
-            production:[]
+            production:[],
+            title :"",
+            id:"",
+            poster:""
         }
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
+        this.addToFav = this.addToFav.bind(this);
     }
 
     componentDidMount()
@@ -48,6 +53,10 @@ class Singlemoviedetail extends React.Component {
         const production = {};
         Object.assign(production, this.props.viewData.production);
         this.setState({ production: production })
+
+        this.setState( {title: this.props.viewData.title})
+        this.setState( {id: this.props.viewData.id})
+        this.setState( {poster: this.props.viewData.poster})
     }
 
     handleOpenModal() {
@@ -56,6 +65,10 @@ class Singlemoviedetail extends React.Component {
 
     handleCloseModal() {
         this.setState({ showModal: false });
+    }
+
+    addToFav(){
+      this.props.addToFav(this.state.title, this.state.poster, this.state.id);
     }
 
     render() {
@@ -112,9 +125,11 @@ class Singlemoviedetail extends React.Component {
 
         return (
             <div>
+              
                 <div className="Bmovie-card">
+                
                     <div className="BMcontainer">
-
+                    <div className="heartM" onClick={this.addToFav}><i className="fa fa-heart" ></i></div>
                         <div className="BMhero" style={{ backgroundImage: 'url(' + imgUrl + ')' }} onClick={this.handleOpenModal}></div>
                         <ReactModal
                             isOpen={this.state.showModal}
@@ -137,7 +152,7 @@ class Singlemoviedetail extends React.Component {
                                 <span className="popularity">Count: {this.state.ratings.count} | Popularity: {this.state.ratings.popularity}</span>
                                     </span>
                                 </div>
-                            <span className="BMextra">{runRav}</span>
+                              <span className="BMextra">{runRav}</span>
                             </div>
                         <div className="BMdescription">
                             <div className="BMcolumn1">
@@ -168,6 +183,7 @@ class Singlemoviedetail extends React.Component {
                                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar3.png" alt="avatar3" />
                                     </a>
                                 </div> */}
+                                <TabCastCrew/>
                             </div>
                         </div>
                     </div>
