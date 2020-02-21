@@ -15,6 +15,7 @@ class AllMovieList extends React.Component {
         this.conditionalRendering = this.conditionalRendering.bind(this);
         this.getViewID = this.getViewID.bind(this);
         this.setViewFLAG = this.setViewFLAG.bind(this);
+        this.getProduction = this.getProduction.bind(this);
     }
 
     conditionalRendering() {
@@ -54,7 +55,7 @@ class AllMovieList extends React.Component {
                 }
             }
             else if (this.props.viewFLAG){
-                renderThis = <MovieView viewID={this.state.viewID} getFLAGS={this.props.getFLAGS} addToFav={this.props.addToFav}/>
+                renderThis = <MovieView viewID={this.state.viewID} getFLAGS={this.props.getFLAGS} addToFav={this.props.addToFav} getProduction={this.getProduction}/>
             }
         }
     }
@@ -63,6 +64,7 @@ class AllMovieList extends React.Component {
         this.setState( {viewID : id})
         document.getElementById('filter').style.display = "none";
         document.getElementById('sort').style.display = "none";
+        document.getElementById('castcrewcontainer').style.display = "inline-block";
         this.setViewFLAG()
     }
 
@@ -74,10 +76,15 @@ class AllMovieList extends React.Component {
         this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG)
     }
 
+    getProduction(production){
+       this.props.getProduction(production);
+    }
+
     render() {
         this.conditionalRendering();
         return (
             <div className="listContainer" id="listContainer">
+                
                 <div className="fa fa-sort-amount-asc" id="sort">
                     <select onChange={this.props.doSort}>
                         <option className="option" value="sortByTitle">Title</option>

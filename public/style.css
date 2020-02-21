@@ -369,7 +369,9 @@
             grid-template-areas:
             "header header"      
             "fav  fav"
-            "filter list";
+            "filter listContainer"
+            "castcrewcontainer listContainer";
+
             background-image: url('./bgAboutus.jpg');
             background-size: cover;
             background-repeat: no-repeat;
@@ -394,6 +396,7 @@
         box-shadow: inset 0 0 20px rgba(123, 30, 177, 0.5), 0 0 20px rgba(17, 228, 228, 0.2);
         outline-color: rgba(255, 255, 255, 0);
         outline-offset: 15px;
+        position: relative;
       }
 
       .favs {
@@ -410,6 +413,7 @@
         outline-color: rgba(255, 255, 255, 0);
         outline-offset: 15px;
         /* overflow-x: scroll; */
+        position: relative;
       }
 
       .filter {
@@ -419,10 +423,30 @@
         overflow: hidden;
         width: 100px;
         height: 45px;
+        position: relative;
+      }
+
+      .castcrewcontainer {
+        display: none;
+        float: left;
+        grid-area: castcrewcontainer;
+        transition: width 2s;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        width: 500px;
+        height: 620px;
+        position: relative;
+        top:-10px;
+        font-family: 'Fredericka the Great', cursive;
+        padding: 0;
+        border: 1px solid;
+        box-shadow: inset 0 0 20px rgba(123, 30, 177, 0.5), 0 0 20px rgba(17, 228, 228, 0.2);
+        outline-color: rgba(255, 255, 255, 0);
+        outline-offset: 15px;
       }
 
       .listContainer{
-        grid-area: list;
+        grid-area: listContainer;
         transition: width 2s ease-in-out;
         width: 100%;
         overflow-y: scroll;
@@ -431,6 +455,7 @@
         box-shadow: inset 0 0 20px rgba(123, 30, 177, 0.5), 0 0 20px rgba(17, 228, 228, 0.2);
         outline-color: rgba(255, 255, 255, 0);
         outline-offset: 15px;
+        position: relative;
         
       }
 

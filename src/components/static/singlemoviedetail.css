@@ -283,8 +283,9 @@
   background-color: white;
   color: #ff3d49;
   position: relative;
-  top: -50px;
-  left: 900px;
+  top: -35px;
+  left: -80px;
+  float: left;
   width: 40px;
   height: 40px;
   border-radius: 40%;
@@ -322,9 +323,140 @@ color: red;
 cursor: pointer;
 }
 
-.tabcastcrew{
-  /* position: absolute;
-  top: -1000px;
-  left: 800px; */
+/* //////////////////////////////////////tabs/////////////////// */
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
 }
-/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////tab cast////////////////////////////////////////// */
+
+
+
+.react-tabs__tab-list {
+  border-bottom: 1px solid #aaa;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.react-tabs__tab {
+  display: inline-block;
+  border: 1px solid gray;
+  border-bottom: none;
+  bottom: -1px;
+  position: relative;
+  list-style: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: transparent;
+
+}
+
+.react-tabs__tab:hover{
+  border-radius: 5px 5px 0 0;
+background-color: gray;
+  box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #153b4b; 
+}
+
+.react-tabs__tab--selected {
+  background: #fff;
+  border-color: black;
+  color: black;
+  border-radius: 5px 5px 0 0;
+
+  box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #153b4b; 
+}
+
+.react-tabs__tab--disabled {
+  color: GrayText;
+  cursor: default;
+}
+
+.react-tabs__tab:focus {
+  /* box-shadow: 0 0 5px hsl(208, 99%, 50%); */
+  /* border-color: hsl(208, 99%, 50%); */
+
+  border-radius: 5px 5px 0 0;
+
+  box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #153b4b; 
+}
+
+.react-tabs__tab:focus:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  left: -4px;
+  right: -4px;
+  bottom: -5px;
+  background: transparent;
+}
+
+.react-tabs__tab-panel {
+  display: none;
+}
+
+.react-tabs__tab-panel--selected {
+  display: block;
+}
+/* //////////////////////////////////tab cast////////////////////////////////////////// */
+
+.personsCast{
+  display: inline-block;
+  /* padding: 10px; */
+  /* border: 10px solid; */
+  margin-left: -50px;
+  /* margin-top: -30px; */
+}
+
+.cardCast {
+  transition: 0.3s;
+  width: 600px;
+  -webkit-transform: scale(0.7);
+  transform: scale(0.7);
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  
+
+}
+
+.profileCast > a {
+  color:gray;
+  text-decoration:  none;
+  padding: 5px;
+  border: 0 solid;
+  text-shadow: none;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  border-radius: 20px;
+}
+
+.profileCast > a:hover{
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.cardCast:hover {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+cursor: crosshair;
+}
+
+/* Add some padding inside the card container */
+.containerCast {
+  padding: 2px 10px;
+}

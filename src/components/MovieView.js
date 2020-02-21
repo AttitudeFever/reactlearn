@@ -13,11 +13,13 @@ class MovieView extends React.Component {
         this.handleCloseMovieView=this.handleCloseMovieView.bind(this);
         this.setListAllFLAG=this.setListAllFLAG.bind(this);
         this.conditionalRendering = this.conditionalRendering.bind(this);
+        this.getProduction = this.getProduction.bind(this);
     }
 
     handleCloseMovieView(){
         document.getElementById('filter').style.display = "inline-block";
         document.getElementById('sort').style.display = "inline-block";
+        document.getElementById('castcrewcontainer').style.display = "none";
         this.setListAllFLAG();
     }
 
@@ -43,10 +45,14 @@ class MovieView extends React.Component {
         }
     }
 
+    getProduction(production){
+        this.props.getProduction(production)
+    }
+
     conditionalRendering(){
         renderThis = this.state.isLoading ? <p className="isLoading" ><img src={loader} alt="Loading" height="80" width="80"/>Loading API....</p>
         :
-        <SingleMovieDetail viewData={this.state.viewData} addToFav={this.props.addToFav}/>
+        <SingleMovieDetail viewData={this.state.viewData} addToFav={this.props.addToFav} getProduction={this.getProduction}/>
     }
 
     render() {

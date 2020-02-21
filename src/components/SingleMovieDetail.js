@@ -4,7 +4,7 @@ import './static/singlemoviedetail.css';
 import Rater from 'react-rater';
 import ReactModal from 'react-modal';
 import bgImg from './images/bgAboutus.jpg';
-import TabCastCrew from './TabCastCrew';
+
 
 const customStyles = {
     content: {
@@ -57,6 +57,8 @@ class Singlemoviedetail extends React.Component {
         this.setState( {title: this.props.viewData.title})
         this.setState( {id: this.props.viewData.id})
         this.setState( {poster: this.props.viewData.poster})
+
+        this.props.getProduction(production)
     }
 
     handleOpenModal() {
@@ -166,9 +168,9 @@ class Singlemoviedetail extends React.Component {
                             </p>
                             </div>
                             <div className="BMcolumn2">
-                                <p>Overview:
+                                <span>Overview:
                                     <p>{this.state.details.overview}</p>
-                                </p>
+                                </span>
                                 <p>Keywords:&nbsp;
                                     {keywords}
                                 </p>
@@ -183,7 +185,6 @@ class Singlemoviedetail extends React.Component {
                                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar3.png" alt="avatar3" />
                                     </a>
                                 </div> */}
-                                <TabCastCrew/>
                             </div>
                         </div>
                     </div>

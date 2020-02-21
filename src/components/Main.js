@@ -4,6 +4,7 @@ import AllMovieList from './AllMovieList';
 import FavList from './FavList';
 import FilterContainter from './FilterContainer';
 import * as cloneDeep from 'lodash/cloneDeep';
+import CastCrewContainer from './CastCrewContainer';
 
 const LOCAL_STORAGE_KEY = 'movieData';
 const LOCAL_STORAGE_KEY_2 = 'favList';
@@ -14,7 +15,8 @@ class Main extends React.Component {
             isLoading:false,
             movieData : [],
             favList:[],
-            filterResult:[]
+            filterResult:[],
+            production : []
         }
         this.storeMainAPILocally = this.storeMainAPILocally.bind(this);
         this.storeFavListLocally = this.storeFavListLocally.bind(this);
@@ -28,6 +30,7 @@ class Main extends React.Component {
         this.setFilterFLAG = this.setFilterFLAG.bind(this);
         this.setListAllFLAG = this.setListAllFLAG.bind(this);
         this.doSort = this.doSort.bind(this);
+        this.getProduction=this.getProduction.bind(this);
     }
 
     componentDidMount(){
@@ -218,6 +221,10 @@ class Main extends React.Component {
         else if (value === "sortByRating") {this.sortByRatings()}
     }
 
+    getProduction(production){
+        this.setState({production : production})
+    }
+
     render() {
         return (
             <div className="grid-container">
@@ -227,13 +234,16 @@ class Main extends React.Component {
 
                 <FilterContainter movieData={this.state.movieData} getFilterResult={this.getFilterResult}
                     setListAllFLAG={this.setListAllFLAG} />
+                
+                <CastCrewContainer production={this.state.production}/>
 
                 <AllMovieList isLoading={this.state.isLoading} movieData={this.state.movieData} searchValue={this.props.searchValue}
                     searchFLAG={this.props.searchFLAG} listAllFLAG={this.props.listAllFLAG}
                     sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} sortByRatings={this.sortByRatings}
                     doSort={this.doSort} addToFav={this.addToFav}
                     filterResult={this.state.filterResult} filterFLAG={this.props.filterFLAG} 
-                    viewFLAG={this.props.viewFLAG} getFLAGS={this.props.getFLAGS}/>
+                    viewFLAG={this.props.viewFLAG} getFLAGS={this.props.getFLAGS}
+                    getProduction={this.getProduction}/>
             </div>
         )
     }
