@@ -96,20 +96,20 @@ class Main extends React.Component {
     sortByYear() {
         this.state.movieData.sort(function (a, b) {
             if (a.release_date > b.release_date) {
-                return 1;
+                return -1;
             }
             if (b.release_date > a.release_date) {
-                return -1;
+                return 1;
             }
             return 0;
         });
 
         this.state.filterResult.sort(function (a, b) {
             if (a.release_date > b.release_date) {
-                return 1;
+                return -1;
             }
             if (b.release_date > a.release_date) {
-                return -1;
+                return 1;
             }
             return 0;
         });
@@ -144,20 +144,20 @@ class Main extends React.Component {
     sortByRatings() {
         this.state.movieData.sort(function (a, b) {
             if (a.ratings.average > b.ratings.average) {
-                return 1;
+                return -1;
             }
             if (b.ratings.average > a.ratings.average) {
-                return -1;
+                return 1;
             }
             return 0;
         });
 
         this.state.filterResult.sort(function (a, b) {
             if (a.ratings.average > b.ratings.average) {
-                return 1;
+                return -1;
             }
             if (b.ratings.average > a.ratings.average) {
-                return -1;
+                return 1;
             }
             return 0;
         });
@@ -235,7 +235,7 @@ class Main extends React.Component {
                 <FilterContainter movieData={this.state.movieData} getFilterResult={this.getFilterResult}
                     setListAllFLAG={this.setListAllFLAG} />
                 
-                <CastCrewContainer production={this.state.production}/>
+                <CastCrewContainer production={this.state.production} viewFLAG={this.props.viewFLAG}/>
 
                 <AllMovieList isLoading={this.state.isLoading} movieData={this.state.movieData} searchValue={this.props.searchValue}
                     searchFLAG={this.props.searchFLAG} listAllFLAG={this.props.listAllFLAG}

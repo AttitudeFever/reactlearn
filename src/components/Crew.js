@@ -14,10 +14,10 @@ class Cast extends React.Component {
                 <div className="personsCast">
                     <div className="cardCast">
                         <div className="containerCast">
-                            <h4><b>Actor Name: {this.props.name}</b></h4>
-                            <div className="profileCast"><a href={" "} >Actor Profile</a>
+                            <h4><b>Department: {this.props.department}</b></h4>
+                            <div className="profileCast"><p>Job: {this.props.job}</p>
                             </div>
-                            <p>Character Name: {this.props.character}</p>
+                            <p>Name: {this.props.name}</p>
                         </div>
                     </div>
                 </div>

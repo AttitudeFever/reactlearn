@@ -2,8 +2,10 @@ import React from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 //import 'react-tabs/style/react-tabs.css';
 import Cast from './Cast';
+import Crew from './Crew';
 
-let renderThis;
+let renderThisCast;
+let renderThisCrew;
 class TabCastCrew extends React.Component {
     constructor() {
         super()
@@ -14,30 +16,40 @@ class TabCastCrew extends React.Component {
 
     conditionRendering(){
         if (this.props.cast !== undefined && this.props.cast[0].name !== "Not Found"){
-            renderThis = this.props.cast.map( (item, index)=>{
+            renderThisCast = this.props.cast.map( (item, index)=>{
                 return <Cast key={index} id={item.id} character={item.character} name={item.name} />
             })
         }else{
-            renderThis = <p>No Cast Found</p>
+            renderThisCast = <p>No Cast Info Found</p>
+        }
+
+        if (this.props.crew !== undefined && this.props.crew[0].name !== "Not Found"){
+            renderThisCrew = this.props.crew.map( (item, index)=>{
+                return <Crew key={index} department={item.department} job={item.job} name={item.name} />
+            })
+        }else{
+            renderThisCrew = <p>No Crew Info Found</p>
         }
     }
 
     render() {
         this.conditionRendering();
         return (
-            <Tabs className="tabcastcrew">
+            <Tabs className="tabcastcrew" defaultIndex={0} >
                 <TabList>
-                    <Tab>Movie Cast</Tab>
+                    <Tab >Movie Cast</Tab>
                     <Tab>Movie Crew</Tab>
                 </TabList>
 
                 <TabPanel>
                     {
-                        renderThis
+                        renderThisCast
                     }
                 </TabPanel>
                 <TabPanel>
-                    <h2>Any content 2</h2>
+                    {
+                        renderThisCrew
+                    }
                 </TabPanel>
             </Tabs>
         )
