@@ -6,6 +6,16 @@ class Cast extends React.Component {
         super()
         this.state = {}
         this.conditionalRendering = this.conditionalRendering.bind(this);
+        this.setActorProfileFLAG = this.setActorProfileFLAG.bind(this);
+    }
+
+    setActorProfileFLAG(){
+        let searchFLAG = false;
+        let listAllFLAG = false;
+        let FilterFLAG = false;
+        let viewFLAG = false;
+        let ActorProfileFLAG = true;
+        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG, ActorProfileFLAG)
     }
 
     conditionalRendering(){
@@ -15,7 +25,7 @@ class Cast extends React.Component {
                     <div className="cardCast">
                         <div className="containerCast">
                             <h4><b>Actor Name: {this.props.name}</b></h4>
-                            <div className="profileCast"><a href={" "} >Actor Profile</a>
+                            <div className="profileCast"><span className="actorprofile" onClick={this.setActorProfileFLAG}>Actor Profile</span>
                             </div>
                             <p>Character Name: {this.props.character}</p>
                         </div>

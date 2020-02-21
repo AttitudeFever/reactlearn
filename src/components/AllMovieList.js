@@ -4,6 +4,7 @@ import SingleMovieBrief from './SingleMovieBrief';
 import { CSSTransitionGroup } from 'react-transition-group'
 import loader from './images/loader2.gif';
 import MovieView from './MovieView';
+import ActorProfile from './ActorProfile';
 
 let renderThis;
 class AllMovieList extends React.Component {
@@ -57,6 +58,9 @@ class AllMovieList extends React.Component {
             else if (this.props.viewFLAG){
                 renderThis = <MovieView viewID={this.state.viewID} getFLAGS={this.props.getFLAGS} addToFav={this.props.addToFav} getProduction={this.getProduction}/>
             }
+            else if (this.props.ActorProfileFLAG){
+                renderThis = <ActorProfile getFLAGS={this.props.getFLAGS}/>
+            }
         }
     }
 
@@ -73,11 +77,12 @@ class AllMovieList extends React.Component {
         let listAllFLAG = false;
         let FilterFLAG = false;
         let viewFLAG = true;
-        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG)
+        let ActorProfileFLAG = false;
+        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG, ActorProfileFLAG)
     }
 
     getProduction(production){
-       this.props.getProduction(production);
+        this.props.getProduction(production);
     }
 
     render() {

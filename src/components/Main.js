@@ -203,7 +203,8 @@ class Main extends React.Component {
         let listAllFLAG = false;
         let filterFLAG = true;
         let viewFLAG = false;
-        this.props.getFLAGS(searchFLAG, listAllFLAG, filterFLAG, viewFLAG) 
+        let ActorProfileFLAG = false;
+        this.props.getFLAGS(searchFLAG, listAllFLAG, filterFLAG, viewFLAG, ActorProfileFLAG) 
     }
 
     setListAllFLAG(){
@@ -211,7 +212,8 @@ class Main extends React.Component {
         let listAllFLAG = true;
         let FilterFLAG = false;
         let viewFLAG = false;
-        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG) 
+        let ActorProfileFLAG = false;
+        this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG, ActorProfileFLAG) 
     }
 
     doSort(e){
@@ -235,15 +237,15 @@ class Main extends React.Component {
                 <FilterContainter movieData={this.state.movieData} getFilterResult={this.getFilterResult}
                     setListAllFLAG={this.setListAllFLAG} />
                 
-                <CastCrewContainer production={this.state.production} viewFLAG={this.props.viewFLAG}/>
+                <CastCrewContainer production={this.state.production} viewFLAG={this.props.viewFLAG} getFLAGS={this.props.getFLAGS} ActorProfileFLAG={this.props.ActorProfileFLAG}/>
 
                 <AllMovieList isLoading={this.state.isLoading} movieData={this.state.movieData} searchValue={this.props.searchValue}
                     searchFLAG={this.props.searchFLAG} listAllFLAG={this.props.listAllFLAG}
                     sortByYear={this.sortByYear} sortByTitle={this.sortByTitle} sortByRatings={this.sortByRatings}
                     doSort={this.doSort} addToFav={this.addToFav}
                     filterResult={this.state.filterResult} filterFLAG={this.props.filterFLAG} 
-                    viewFLAG={this.props.viewFLAG} getFLAGS={this.props.getFLAGS}
-                    getProduction={this.getProduction}/>
+                    viewFLAG={this.props.viewFLAG} ActorProfileFLAG={this.props.ActorProfileFLAG} 
+                    getFLAGS={this.props.getFLAGS} getProduction={this.getProduction}/>
             </div>
         )
     }
