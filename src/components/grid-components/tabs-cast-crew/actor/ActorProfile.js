@@ -1,7 +1,7 @@
 import React from 'react'
-import unknown_cast from './images/unknown_cast.jpg';
+import unknown_cast from '../../../../images/unknown_cast.jpg'
 import ReactModal from 'react-modal';
-import bgImg from './images/bgAboutus.jpg';
+import bgImg from '../../../../images/bgAboutus.jpg';
 
 
 const customStyles = {

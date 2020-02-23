@@ -1,5 +1,5 @@
 import React from 'react'
-import loader from './images/loader2.gif';
+import loader from '../../../../images/loader2.gif';
 import ActorProfile from './ActorProfile';
 
 const AIKEY = "65c5e6c3fe25133b5ae1e6fde0e71cb6";

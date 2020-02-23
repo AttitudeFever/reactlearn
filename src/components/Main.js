@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from './Header';
-import AllMovieList from './AllMovieList';
-import FavList from './FavList';
-import FilterContainter from './FilterContainer';
+import Header from './grid-components/Header';
+import AllMovieList from './grid-components/movie-list/AllMovieList';
+import FavList from './grid-components/favorite/FavList';
+import FilterContainter from './grid-components/filter/FilterContainer';
 import * as cloneDeep from 'lodash/cloneDeep';
-import CastCrewContainer from './CastCrewContainer';
+import CastCrewContainer from './grid-components/tabs-cast-crew/CastCrewContainer';
 
 const LOCAL_STORAGE_KEY = 'movieData';
 const LOCAL_STORAGE_KEY_2 = 'favList';

@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import About from './About';
+import About from '../aboutus/About';
+import logo from '../../images/logo2.png';
 
 function Header() {
     return (
         <div className="header">
             <Link to='/'>
-                <img className="logo" src="../logo2.png" alt="MRU Theater Logo" />
+                <img className="logo" src={logo} alt="MRU Theater Logo" />
             </Link>
             <h1 className="heading2">WELCOME TO HM's MOVIE COLLECTION</h1>
             <div className="buttonPack">

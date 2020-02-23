@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactModal from 'react-modal';
 import Person from './Person';
-import imgHamid from './images/hamid.png';
-import imgMark from './images/mark.jpg';
-import bgImg from './images/bgAboutus.jpg';
+import imgHamid from '../../images/hamid.png';
+import imgMark from '../../images/mark.jpg';
+import bgImg from '../../images/bgAboutus.jpg';
 
 const customStyles = {
     content: {

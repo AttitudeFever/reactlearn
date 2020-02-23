@@ -2,14 +2,16 @@
 /* //////////////////////////////////////// Home Page /////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .main{
-}
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 
 @import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
+}
+
+
 
 .hero-image{
 
-    background-image: url('./bgAboutus.jpg');
+    background-image: url('../images/bgAboutus.jpg');
     background-color: rgba(123, 30, 177, 0.3);
     background-position: center;
     background-repeat: no-repeat; 
@@ -394,7 +396,7 @@
             "filter listContainer"
             "castcrewcontainer listContainer";
 
-            background-image: url('./bgAboutus.jpg');
+            background-image: url('../images/bgAboutus.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: 50% 50%;
