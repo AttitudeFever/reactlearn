@@ -599,7 +599,7 @@
         margin-left: 10px;
       }
 
-      @keyframes click-wave {
+      @keyframes click-wave { /* wave effect found here  https://codepen.io/wilder_taype/pen/pNXwMW/*/
         0% {
           height: 40px;
           width: 40px;
@@ -674,6 +674,7 @@
 }
 
 
+/* Range css found here https://www.cssportal.com/style-input-range/*/
 
 input[type=range] {
   height: 27px;
