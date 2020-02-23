@@ -89,7 +89,7 @@ class Singlemoviedetail extends React.Component {
             imgUrl = "https://image.tmdb.org/t/p/w780/" + this.props.viewData.poster;
         }
 
-        if (this.state.details.genres !== undefined) {
+        if (this.state.details.genres !== undefined && this.state.details.genres !== null) {
             genres = this.state.details.genres.map((item, index) => {
                 let genresWithoutSpace = item.name.replace(/\s/g, '').replace(/[|&;$%@"<>()+,-]/g, "");
                 if (index > 1 && index %3 === 0){
@@ -100,21 +100,25 @@ class Singlemoviedetail extends React.Component {
             })
         }
 
-        if (this.state.details.keywords !== undefined) {
+        if (this.state.details.keywords !== undefined && this.state.details.keywords !== null) {
             keywords = this.state.details.keywords.map((item, index) => {
                 let keywordsWithoutSpace = item.name.replace(/\s/g, '').replace(/[|&;$%@"<>()+,-]/g, "");
-                if (index > 1 && index %3 === 0){
-                    return <span className="BMkeyword" key={index}>{keywordsWithoutSpace}<br/></span>
+                if (index > 1 && index % 3 === 0) {
+                    return <span className="BMkeyword" key={index}>{keywordsWithoutSpace}<br /></span>
                 } else {
                     return <span className="BMkeyword" key={index}>{keywordsWithoutSpace}</span>
                 }
             })
+        } else {
+            keywords = <span>N/A</span>
         }
 
-        if (this.state.production.countries !== undefined) {
+        if (this.state.production.countries !== undefined && this.state.production.countries !== null) {
             countries = this.state.production.countries.map((item, index) => {
                 return <span key={index}><i className="far fa-flag">&nbsp;{item.name}</i><br/></span>
             })
+        }else{
+            countries = <span>N/A</span>
         }
 
         if (this.state.production.companies !== undefined && this.state.production.companies !== null ) {
@@ -127,7 +131,6 @@ class Singlemoviedetail extends React.Component {
 
         return (
             <div>
-              
                 <div className="Bmovie-card">
                 
                     <div className="BMcontainer">
@@ -139,7 +142,7 @@ class Singlemoviedetail extends React.Component {
                             style={customStyles}
                             contentLabel="Minimal Modal Example"
                             closeTimeoutMS={2000}>
-                                <img src={imgUrl} alt=""/>
+                                <img src={imgUrl} alt={title}/>
                             <button id="close" className="fa fa-close" onClick={this.handleCloseModal}></button>
                         </ReactModal>
 

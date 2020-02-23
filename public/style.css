@@ -1,7 +1,7 @@
 
 /* //////////////////////////////////////// Home Page /////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
-.main{
 
+.main{
 }
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 
@@ -10,28 +10,51 @@
 .hero-image{
 
     background-image: url('./bgAboutus.jpg');
-    background-color: black; /* Used if the image is unavailable */
+    background-color: rgba(123, 30, 177, 0.3);
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover; 
-    background-repeat: no-repeat;
     background-position: 50% 50%; 
-    height: 753px;
     /* filter: blur(5px);
     -webkit-filter: blur(5px); */
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+      img.bg {
+        left: 50%;
+        margin-left: -512px;   /* 50% */
+      }
 }
 
 .homeMain{
-  text-align: center;
-  position: absolute;
-  top:100px;
-  left:25%;
+  text-align: center; 
   border: 1px solid;
   box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
   padding-bottom: 20px;
   width: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  .homeMain {
+    position: relative;
+    top: 0%;
+    left: -150px;
+    /* transform: translate(-50%, -50%); */
+    transform: scale(0.5);
+  }
 }
 
 .heading{
@@ -294,7 +317,6 @@
     opacity: 0.00;
   }
   .fadeb-enter.fadeb-enter-active{
-    /* display: inline-block; */
     opacity: 1;
     transition: opacity 500ms ease-in;
   }
@@ -303,7 +325,6 @@
     opacity: 1;
   }
   .fadeb-leave.fadeb-leave-active{
-    /* display: none; */
     opacity: 0;
     transition: opacity 500ms ease-in;
   }
@@ -318,7 +339,7 @@
 }
 
 .fade-enter {
-  opacity: 0.01;
+  opacity: 0.0;
 }
 
 .fade-enter.fade-enter-active {
@@ -334,6 +355,7 @@
   opacity: 0.00;
   transition: opacity 300ms ease-in;
 }
+
 
 
   #btnDelete{
@@ -376,6 +398,14 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: 50% 50%;
+            min-height: 100%;
+            min-width: 1024px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
             /* filter: blur(8px);
             -webkit-filter: blur(8px); */
       }
@@ -451,6 +481,7 @@
         width: 100%;
         overflow-y: scroll;
         height: 620px;
+        /* height: auto; */
         border: 1px solid;
         box-shadow: inset 0 0 20px rgba(123, 30, 177, 0.5), 0 0 20px rgba(17, 228, 228, 0.2);
         outline-color: rgba(255, 255, 255, 0);
@@ -1004,10 +1035,9 @@ button:hover{
 
 .persons{
   display: inline-block;
-  /* padding: 10px; */
-  /* border: 10px solid; */
-  margin-left: 280px;
-  margin-top: -30px;
+  /* margin-left: 280px;
+  margin-top: -30px; */
+  padding-left: 20%;
 }
 
 .projectInfo{
@@ -1015,10 +1045,9 @@ button:hover{
   box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
-}
+} 
 
 .projectInfo > p, .projectInfo > ul,  .projectInfo > ul > li{
-    /* font-family: 'Fredericka the Great', cursive; */
     text-align: center;
     padding: 0px; 
     font-size: 12px;
@@ -1076,7 +1105,6 @@ button:hover{
   box-shadow: inset 0 0 20px rgba(123, 30, 177, 1), 0 0 20px rgba(17, 228, 228, 1);
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
-  
 
 }
 

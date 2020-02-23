@@ -26,7 +26,7 @@ class SingleFav extends React.Component {
 
                 <div className="singleFav">
                     <img src={poster} alt={this.props.title} />
-                    <button id="btnDelete" className="fa fa-close" onClick={this.deleteFavItem}></button>
+                    <button id="btnDelete" className="fa fa-close" onClick={this.deleteFavItem} ></button>
                 </div>
             </CSSTransitionGroup>
         )

@@ -1,26 +1,27 @@
 import React from 'react'
 import FilterComponent from './FilterComponent'
 
+const INITALSTATE = {
+    titleSearch : "",
+    beforeRadio:true,
+    afterRadio:false,
+    betweenRadio:false,
+    beforeYear:"2020",
+    afterYear:"1900",
+    betweenStartYear:"1900",
+    betweenEndYear:"2020",
+    belowRadio:true,
+    aboveRadio:false,
+    betweenRatingRadio:false,
+    belowSlider:10,
+    aboveSlider:1,
+    betweenStartSlider:1,
+    betweenEndSlider:10
+}
 class FilterContainer extends React.Component {
     constructor(){
         super()
-        this.state={
-            titleSearch : "",
-            beforeRadio:true,
-            afterRadio:false,
-            betweenRadio:false,
-            beforeYear:2020,
-            afterYear:1900,
-            betweenStartYear:1900,
-            betweenEndYear:2020,
-            belowRadio:true,
-            aboveRadio:false,
-            betweenRatingRadio:false,
-            belowSlider:10,
-            aboveSlider:1,
-            betweenStartSlider:1,
-            betweenEndSlider:10,
-        }
+        this.state=INITALSTATE;
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -173,8 +174,27 @@ class FilterContainer extends React.Component {
     }
 
     handleClear(e){
+        const beforeYearSearch = document.getElementById("beforeYearSearch");
+        const afterYearSearch = document.getElementById("afterYearSearch");
+        const betweenStartingYearSearch = document.getElementById("betweenStartingYearSearch");
+        const betweenEndingYearSearch = document.getElementById("betweenEndingYearSearch");
+        const belowRating = document.getElementById("belowRating");
+        const aboveRating = document.getElementById("aboveRating");
+        const betweenStartRating = document.getElementById("betweenStartRating");
+        const betweenEndRating = document.getElementById("betweenEndRating");
+
         e.preventDefault();
         this.props.setListAllFLAG();
+        this.setState(INITALSTATE);
+
+        beforeYearSearch.disabled= false;
+        afterYearSearch.disabled= true;
+        betweenStartingYearSearch.disabled= true;
+        betweenEndingYearSearch.disabled= true;
+        belowRating.disabled=false;
+        aboveRating.disabled=true;
+        betweenStartRating.disabled=true;
+        betweenEndRating.disabled=true;
     }
 
     filterPopup(){

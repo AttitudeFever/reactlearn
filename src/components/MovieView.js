@@ -60,7 +60,7 @@ class MovieView extends React.Component {
         this.conditionalRendering();
         return (
             <div>
-                <button id="closeM" className="fa fa-close" onClick={this.handleCloseMovieView}></button>
+                <button id="closeM" className="fa fa-close" onClick={this.handleCloseMovieView} alt="Back To Main"></button>
                 { renderThis }
             </div>
         )

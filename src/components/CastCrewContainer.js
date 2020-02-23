@@ -60,7 +60,7 @@ class CastCrewContainer extends React.Component {
 
         }
 
-        renderThis = this.props.viewFLAG || this.props.ActorProfileFLAG ? <TabCastCrew cast={castArray} crew={crewArray} getFLAGS={this.props.getFLAGS}/> : null;
+        renderThis = this.props.viewFLAG || this.props.ActorProfileFLAG ? <TabCastCrew cast={castArray} crew={crewArray} getFLAGS={this.props.getFLAGS} getActorID={this.props.getActorID}/> : null;
         
     }
 

@@ -1,15 +1,14 @@
 import React from 'react'
 import SingleMovieBrief from './SingleMovieBrief';
-//import CSSTransitionGroup from 'react-addons-css-transition-group'
-import { CSSTransitionGroup } from 'react-transition-group'
 import loader from './images/loader2.gif';
 import MovieView from './MovieView';
-import ActorProfile from './ActorProfile';
+import ActorProfileContainer from './ActorProfileContainer';
 
 let renderThis;
 class AllMovieList extends React.Component {
     constructor(){
         super()
+        this.childKey = 0;
         this.state={
             viewID : 0
         }
@@ -59,7 +58,7 @@ class AllMovieList extends React.Component {
                 renderThis = <MovieView viewID={this.state.viewID} getFLAGS={this.props.getFLAGS} addToFav={this.props.addToFav} getProduction={this.getProduction}/>
             }
             else if (this.props.ActorProfileFLAG){
-                renderThis = <ActorProfile getFLAGS={this.props.getFLAGS}/>
+                renderThis = <ActorProfileContainer  key={this.childKey} getFLAGS={this.props.getFLAGS} ActorID={this.props.ActorID}/>
             }
         }
     }
@@ -86,6 +85,7 @@ class AllMovieList extends React.Component {
     }
 
     render() {
+        ++this.childKey;
         this.conditionalRendering();
         return (
             <div className="listContainer" id="listContainer">
@@ -99,12 +99,7 @@ class AllMovieList extends React.Component {
                 </div>
                 <div className="list" id="list">
                     {
-                        // <CSSTransitionGroup
-                        //     transitionName="fadeb"
-                        //     transitionEnterTimeout={500}
-                        //     transitionLeaveTimeout={1}>
-                            renderThis
-                        // </CSSTransitionGroup>
+                        renderThis
                     }
                 </div>
             </div>

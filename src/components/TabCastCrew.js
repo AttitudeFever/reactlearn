@@ -17,7 +17,8 @@ class TabCastCrew extends React.Component {
     conditionRendering(){
         if (this.props.cast !== undefined && this.props.cast[0].name !== "Not Found"){
             renderThisCast = this.props.cast.map( (item, index)=>{
-                return <Cast key={index} id={item.id} character={item.character} name={item.name} getFLAGS={this.props.getFLAGS}/>
+                return <Cast key={index} id={item.id} character={item.character} name={item.name} 
+                            getFLAGS={this.props.getFLAGS} getActorID={this.props.getActorID} />
             })
         }else{
             renderThisCast = <p>No Cast Info Found</p>
