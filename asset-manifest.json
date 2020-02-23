@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/ReactAppA1/static/css/main.48d22bcc.chunk.css",
+    "main.js": "/ReactAppA1/static/js/main.6e7a5740.chunk.js",
+    "main.js.map": "/ReactAppA1/static/js/main.6e7a5740.chunk.js.map",
+    "runtime-main.js": "/ReactAppA1/static/js/runtime-main.ce61690c.js",
+    "runtime-main.js.map": "/ReactAppA1/static/js/runtime-main.ce61690c.js.map",
+    "static/js/2.05225ba5.chunk.js": "/ReactAppA1/static/js/2.05225ba5.chunk.js",
+    "static/js/2.05225ba5.chunk.js.map": "/ReactAppA1/static/js/2.05225ba5.chunk.js.map",
+    "index.html": "/ReactAppA1/index.html",
+    "precache-manifest.8b32cb8e75cbe2b06cfc901df129db1b.js": "/ReactAppA1/precache-manifest.8b32cb8e75cbe2b06cfc901df129db1b.js",
+    "service-worker.js": "/ReactAppA1/service-worker.js",
+    "static/css/main.48d22bcc.chunk.css.map": "/ReactAppA1/static/css/main.48d22bcc.chunk.css.map",
+    "static/js/2.05225ba5.chunk.js.LICENSE": "/ReactAppA1/static/js/2.05225ba5.chunk.js.LICENSE",
+    "static/media/style.css": "/ReactAppA1/static/media/bgAboutus.930b1733.jpg",
+    "static/media/hamid.png": "/ReactAppA1/static/media/hamid.aa85a6fd.png",
+    "static/media/loader2.gif": "/ReactAppA1/static/media/loader2.7a1fd145.gif",
+    "static/media/logo2.png": "/ReactAppA1/static/media/logo2.ac49e172.png",
+    "static/media/mark.jpg": "/ReactAppA1/static/media/mark.0356f72b.jpg",
+    "static/media/unknown_cast.jpg": "/ReactAppA1/static/media/unknown_cast.fda470f9.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ce61690c.js",
+    "static/js/2.05225ba5.chunk.js",
+    "static/css/main.48d22bcc.chunk.css",
+    "static/js/main.6e7a5740.chunk.js"
+  ]
+}
