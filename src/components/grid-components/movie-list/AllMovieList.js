@@ -4,11 +4,15 @@ import loader from '../../../images/loader2.gif';
 import MovieView from './MovieView';
 import ActorProfileContainer from '../tabs-cast-crew/actor/ActorProfileContainer';
 
+//This Class has only one Parent: Main
+//this class has three child components: SingleMovieBrief, MovieView and ActorProfileContainer
+//this is responsible to what should be render and display upon different requests
+
 let renderThis;
 class AllMovieList extends React.Component {
     constructor(){
         super()
-        this.childKey = 0;
+        this.childKey = 0; //we want to destroy this class and remount it 
         this.state={
             viewID : 0
         }
@@ -18,6 +22,7 @@ class AllMovieList extends React.Component {
         this.getProduction = this.getProduction.bind(this);
     }
 
+    //conditional rendering is happening based on FLAGS i.e seach FLAG, Filter FLAG..etc
     conditionalRendering() {
         if (this.props.isLoading) {
             renderThis = <p className="isLoading" ><img src={loader} alt="Loading" height="80" width="80"/>Loading API....</p>
@@ -63,6 +68,7 @@ class AllMovieList extends React.Component {
         }
     }
 
+    //capture id of that particular movie, request coming from child: MovieView
     getViewID(id){
         this.setState( {viewID : id})
         document.getElementById('filter').style.display = "none";
@@ -71,6 +77,7 @@ class AllMovieList extends React.Component {
         this.setViewFLAG()
     }
 
+    //if movie detail view is request
     setViewFLAG(){
         let searchFLAG = false;
         let listAllFLAG = false;
@@ -80,12 +87,13 @@ class AllMovieList extends React.Component {
         this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG, ActorProfileFLAG)
     }
 
+    //get production data from MovieView
     getProduction(production){
         this.props.getProduction(production);
     }
 
     render() {
-        ++this.childKey;
+        ++this.childKey; //we want to destroy this class and remount it 
         this.conditionalRendering();
         return (
             <div className="listContainer" id="listContainer">

@@ -1,5 +1,7 @@
 import React from 'react'
 
+//this class has only one parent: TabCastCrew
+//this is responsible to create Cast 
 let renderThis;
 class Cast extends React.Component {
     constructor() {
@@ -10,11 +12,13 @@ class Cast extends React.Component {
         this.ActorProfileRequest = this.ActorProfileRequest.bind(this);
     }
 
+    //if actor profile view is requested, send to ID of actor to parent
     ActorProfileRequest(){
         this.setActorProfileFLAG()
         this.props.getActorID(this.props.id)
     }
 
+   //if actor profile view is requested, send FLAG to parent
     setActorProfileFLAG(){
         let searchFLAG = false;
         let listAllFLAG = false;
@@ -24,6 +28,7 @@ class Cast extends React.Component {
         this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG, ActorProfileFLAG)
     }
 
+    //conditonal rendering if data coming is not undefined
     conditionalRendering(){
         if (this.props.name !== undefined) {
             renderThis =
@@ -31,7 +36,7 @@ class Cast extends React.Component {
                     <div className="cardCast">
                         <div className="containerCast">
                             <h4><b>Actor Name: {this.props.name}</b></h4>
-                            <div className="profileCast"><span className="actorprofile" onClick={this.ActorProfileRequest}>Actor Profile</span>
+                            <div className="profileCast"><span className="actorprofile" onClick={this.ActorProfileRequest}>Actor's Profile</span>
                             </div>
                             <p>Character Name: {this.props.character}</p>
                         </div>

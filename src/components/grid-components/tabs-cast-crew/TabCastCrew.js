@@ -4,6 +4,9 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Cast from './Cast';
 import Crew from './Crew';
 
+//this class has only one parent: CastCrewContainer
+//this class has two child components: Cast and Crew
+//this is resonsible to render Cast Crew Components by using resubale "react-tab" component
 let renderThisCast;
 let renderThisCrew;
 class TabCastCrew extends React.Component {
@@ -14,6 +17,7 @@ class TabCastCrew extends React.Component {
         this.conditionRendering = this.conditionRendering.bind(this);
     }
 
+    //handle if any null, undefined, "", clean Regex and display number of items with Algorithm
     conditionRendering(){
         if (this.props.cast !== undefined && this.props.cast[0].name !== "Not Found"){
             renderThisCast = this.props.cast.map( (item, index)=>{
@@ -36,7 +40,8 @@ class TabCastCrew extends React.Component {
     render() {
         this.conditionRendering();
         return (
-            <Tabs className="tabcastcrew" defaultIndex={0} >
+            //create reusable Tabs compoents
+            <Tabs className="tabcastcrew" defaultIndex={0} > 
                 <TabList>
                     <Tab >Movie Cast</Tab>
                     <Tab>Movie Crew</Tab>

@@ -1,5 +1,7 @@
 import React from 'react'
 
+//This component has only one parent component: About
+//functional component for creating member's contact card
 function Person(props) {
     return (
         <div className="persons">

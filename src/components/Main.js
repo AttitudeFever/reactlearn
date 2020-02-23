@@ -6,6 +6,10 @@ import FilterContainter from './grid-components/filter/FilterContainer';
 import * as cloneDeep from 'lodash/cloneDeep';
 import CastCrewContainer from './grid-components/tabs-cast-crew/CastCrewContainer';
 
+//This is the main class container, that is the manager to what should be displayed upon different button clicks
+//Parent of this class is: App
+//This class has 5 child components: Header, FavList, FilterContainer, AllMovieList and CastCrewContainer
+
 const LOCAL_STORAGE_KEY = 'movieData';
 const LOCAL_STORAGE_KEY_2 = 'favList';
 class Main extends React.Component {
@@ -35,16 +39,19 @@ class Main extends React.Component {
         this.getActorID = this.getActorID.bind(this);
     }
 
+    //When componet first formed
     componentDidMount(){
         this.setState( {isLoading : true } )
         this.storeMainAPILocally();
         this.storeFavListLocally();
     }
 
+    //when refresh button is hit
     componentDidUpdate(){
         localStorage.setItem(LOCAL_STORAGE_KEY_2, JSON.stringify(this.state.favList));
     }
 
+    //fetch api and and use local storage 
     async storeMainAPILocally() {
         let storedItemList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
 
@@ -69,6 +76,7 @@ class Main extends React.Component {
         }
     }
 
+    //store favlist into local storage
     storeFavListLocally() {
         let storedItemList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_2));
 
@@ -81,6 +89,7 @@ class Main extends React.Component {
         }
     }
 
+    //first sort upon display by title
     intialSortBytitle(storedItemList) {
         storedItemList.sort(function (a, b) {
             if (a.title > b.title) {
@@ -95,6 +104,8 @@ class Main extends React.Component {
         this.setState( {movieData: storedItemList } );
     }
 
+    //sort by year request, on filter result as awell
+    //request coming from child: AllMovieList
     sortByYear() {
         this.state.movieData.sort(function (a, b) {
             if (a.release_date > b.release_date) {
@@ -119,6 +130,8 @@ class Main extends React.Component {
         this.forceUpdate()
     }
 
+    //sort by title request, on filter reult as well
+    //request coming from child: AllMovieList
     sortByTitle() {
         this.state.movieData.sort(function (a, b) {
             if (a.title > b.title) {
@@ -143,6 +156,8 @@ class Main extends React.Component {
         this.forceUpdate()
     }
 
+    //sort by rating request, on filter result as well
+    //request coming from child: AllMovieList
     sortByRatings() {
         this.state.movieData.sort(function (a, b) {
             if (a.ratings.average > b.ratings.average) {
@@ -167,6 +182,8 @@ class Main extends React.Component {
         this.forceUpdate()
     }
 
+    //handle add to fav request
+    //request coming from child: AllMovieList
     addToFav(title, poster, id) {
         const copyFavs = cloneDeep(this.state.favList);
 
@@ -186,6 +203,8 @@ class Main extends React.Component {
         this.setState({ favList: copyFavs })
     }
 
+    //handle delete item from fav request
+    //request coming from child: FavList
     deleteFavItem(id){
         const copyFavs = cloneDeep(this.state.favList);
         const remainigItems = copyFavs.filter(item => {
@@ -195,11 +214,14 @@ class Main extends React.Component {
         this.setState({ favList: remainigItems })
     }
 
+    //geting filter results from filtercontainter
+    //request coming from child: FilterContainer
     getFilterResult(result){
         this.setState( {filterResult : result} ) 
         this.setFilterFLAG();       
     }
 
+    //if Filter request coming from child: FilterContainer
     setFilterFLAG(){
         let searchFLAG = false;
         let listAllFLAG = false;
@@ -209,6 +231,7 @@ class Main extends React.Component {
         this.props.getFLAGS(searchFLAG, listAllFLAG, filterFLAG, viewFLAG, ActorProfileFLAG) 
     }
 
+    //dislay all movies request coming from child: filterContainer
     setListAllFLAG(){
         let searchFLAG = false;
         let listAllFLAG = true;
@@ -218,6 +241,7 @@ class Main extends React.Component {
         this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG, ActorProfileFLAG) 
     }
 
+    //manger for calling different sort methods, request coming from child: AllMovieList
     doSort(e){
         const value = e.target.value;
         if (value === "sortByTitle") {this.sortByTitle()}
@@ -225,10 +249,12 @@ class Main extends React.Component {
         else if (value === "sortByRating") {this.sortByRatings()}
     }
 
+    //Production result coming from child: CastCrewContainer
     getProduction(production){
         this.setState({production : production})
     }
 
+    //Actor Id coming from child: CastCrewContainer
     getActorID(ActorID){
         this.setState( {ActorID : ActorID} )
     }

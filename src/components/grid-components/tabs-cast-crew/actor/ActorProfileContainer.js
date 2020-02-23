@@ -2,7 +2,11 @@ import React from 'react'
 import loader from '../../../../images/loader2.gif';
 import ActorProfile from './ActorProfile';
 
-const AIKEY = "65c5e6c3fe25133b5ae1e6fde0e71cb6";
+//This class has only one parent: AllMovieList
+//This class has one child: ActorProfile
+//This is responsible to Set and Send FLAGS regarding actor profile to parent
+
+const AIKEY = "65c5e6c3fe25133b5ae1e6fde0e71cb6"; //API KEY from IMDB
 let renderThis;
 class ActorProfileContainer extends React.Component {
     constructor() {
@@ -17,6 +21,7 @@ class ActorProfileContainer extends React.Component {
         this.conditionalRendering = this.conditionalRendering.bind(this);
     }
 
+    //Compment will always remount because we have set child key ints parent: AllMovieList
     async componentDidMount(){
         this.setState( {isLoading : true,  ActorID : this.props.ActorID} )
         try {
@@ -31,6 +36,7 @@ class ActorProfileContainer extends React.Component {
         }
     }
 
+    //if view movie si requested, send to parent
     setViewFLAG(){
         let searchFLAG = false;
         let listAllFLAG = false;
@@ -40,6 +46,7 @@ class ActorProfileContainer extends React.Component {
         this.props.getFLAGS(searchFLAG, listAllFLAG, FilterFLAG, viewFLAG, ActorProfileFLAG)
     }
 
+    //conditional rendering if busy
     conditionalRendering(){
         
         renderThis = this.state.isLoading ? <p className="isLoading" ><img src={loader} alt="Loading" height="80" width="80"/>Loading API....</p>

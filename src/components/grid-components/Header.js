@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import About from '../aboutus/About';
 import logo from '../../images/logo2.png';
 
+//component has only one parent: Main
+//responsible to create Header and redirects routing for SPA
 function Header() {
     return (
         <div className="header">

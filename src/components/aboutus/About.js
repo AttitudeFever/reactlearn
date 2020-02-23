@@ -5,15 +5,9 @@ import imgHamid from '../../images/hamid.png';
 import imgMark from '../../images/mark.jpg';
 import bgImg from '../../images/bgAboutus.jpg';
 
+//style for modal popup
 const customStyles = {
     content: {
-        // top: '50%',
-        // left: '50%',
-        // right: 'auto',
-        // bottom: 'auto',
-        // marginRight: '-50%',
-        // transform: 'translate(-50%, -50%)'
-        // background: 'rgba(255, 255, 255, 0.75)',
         backgroundImage: 'url(' + bgImg + ')',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -23,6 +17,8 @@ const customStyles = {
 
 ReactModal.setAppElement(document.getElementById('root'));
 
+//This class has only one child component: "Person"
+//Parent of this class is Home
 class About extends React.Component {
     constructor() {
         super()
@@ -60,7 +56,7 @@ class About extends React.Component {
         return (
             <div className="aboutUs">
                 <button className="aboutusHome" onClick={this.handleOpenModal}>About Us <i className="fa fa-group"></i></button>
-                <ReactModal
+                <ReactModal     //Reusable React Modal to create popup effect handling and style is defined on the opening tag
                     isOpen={this.state.showModal}
                     onRequestClose={this.closeModal}
                     style={customStyles}
@@ -70,7 +66,7 @@ class About extends React.Component {
                     <div className="aboutBody">
                         <h1 className="heading3">HM's Team Members</h1>
                         {
-                            this.state.people.map((item, index) => {
+                            this.state.people.map((item, index) => { //member's contact cards
                                 return <Person key={index} item={item} />
                             })
                         }

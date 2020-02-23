@@ -1,6 +1,9 @@
 import React from 'react'
 import FilterComponent from './FilterComponent'
 
+//This class has only one parent: FilterContainer
+//this is responsible to provide filter data/result
+
 const INITALSTATE = {
     titleSearch : "",
     beforeRadio:true,
@@ -29,7 +32,7 @@ class FilterContainer extends React.Component {
         this.filterPopup = this.filterPopup.bind(this);
     }
 
-
+//handle change on Form Elements
     handleChange(e){
         const {name, value} = e.target;
         const beforeYearSearch = document.getElementById("beforeYearSearch");
@@ -128,6 +131,7 @@ class FilterContainer extends React.Component {
 
     }
 
+    //handle submit on From and provide filtered result
     handleSubmit(e) {
         e.preventDefault();
 
@@ -173,6 +177,7 @@ class FilterContainer extends React.Component {
         this.props.getFilterResult(filteredByRating)
     }
 
+    //handle clear request
     handleClear(e){
         const beforeYearSearch = document.getElementById("beforeYearSearch");
         const afterYearSearch = document.getElementById("afterYearSearch");
@@ -197,6 +202,7 @@ class FilterContainer extends React.Component {
         betweenEndRating.disabled=true;
     }
 
+    //handle request on expand and shrink filter area
     filterPopup(){
         const btnFilter = document.querySelector('#btnFilter');
         const filter =document.querySelector('#filter');

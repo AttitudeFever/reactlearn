@@ -3,7 +3,10 @@ import unknown_cast from '../../../../images/unknown_cast.jpg'
 import ReactModal from 'react-modal';
 import bgImg from '../../../../images/bgAboutus.jpg';
 
+//This class has onyl one parent: ActorProfileContainer
+//this is responsible to create Actor Profile 
 
+//react modal style 
 const customStyles = {
     content: {
         top: '50%',
@@ -21,6 +24,12 @@ const customStyles = {
 
 ReactModal.setAppElement(document.getElementById('root'));
 
+let actorPoster;
+let place_of_birth;
+let birthday;
+let biography;
+let imdb_link;
+
 class ActorProfile extends React.Component {
     constructor() {
         super()
@@ -29,22 +38,21 @@ class ActorProfile extends React.Component {
         }
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
+        this.handleCleanData = this.handleCleanData.bind(this);
     }
 
+    //handle popup open request
     handleOpenModal() {
         this.setState({ showModal: true });
     }
 
+    //handle popup close request
     handleCloseModal() {
         this.setState({ showModal: false });
     }
 
-    render() {
-        let actorPoster;
-        let place_of_birth;
-        let birthday;
-        let biography;
-        let imdb_link;
+    //handle if any null, undefined, "", display unknown if any occur
+    handleCleanData() {
 
         if (this.props.actorData.profile_path !== undefined && this.props.actorData.profile_path !== null) {
             actorPoster = "https://image.tmdb.org/t/p/w780" + this.props.actorData.profile_path;
@@ -71,12 +79,16 @@ class ActorProfile extends React.Component {
         }
 
         imdb_link = "https://www.imdb.com/name/" + this.props.actorData.imdb_id;
+    }
 
+
+    render() {
+        this.handleCleanData();
         return (
             <div className="card-actor">
                 <div className="card-header-actor">
                     <img className="card-img-actor" src={actorPoster} alt={this.props.actorData.name} onClick={this.handleOpenModal}/></div>
-                <ReactModal
+                <ReactModal //resubale React Modal for poster popup
                     isOpen={this.state.showModal}
                     onRequestClose={this.closeModal}
                     style={customStyles}

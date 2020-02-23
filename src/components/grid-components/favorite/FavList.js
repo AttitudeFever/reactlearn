@@ -1,15 +1,15 @@
 import React from 'react'
 import SingleFav from './SingleFav';
-//import CSSTransitionGroup from 'react-addons-css-transition-group'
-//import { CSSTransitionGroup } from 'react-transition-group'
 
-
+//This class has only one parent: Main
+//This class has only one child: SingleFav
 class FavList extends React.Component {
     constructor() {
         super()
         this.state = {}
     }
 
+    //handle reuest to expand or close Fav bar
     favPopup() {
         const btnFavorite = document.querySelector('#btnFavorite');
         const favs = document.querySelector('#favs');
@@ -29,11 +29,8 @@ class FavList extends React.Component {
         }
     }
 
- 
     render() {
-        
         return (
-            
             <div className="favs" id="favs">
                 <button id="btnFavorite" onClick={this.favPopup}>Favorites<i className="fa fa-heart"></i></button>
                 {

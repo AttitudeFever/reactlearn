@@ -1,5 +1,7 @@
 import React from 'react'
 
+//This Class has only one parent: AllMovieList
+//this is responsible to create Movie Brief Cards
 class SingleMovieBrief extends React.Component {
 
     constructor() {
@@ -9,13 +11,17 @@ class SingleMovieBrief extends React.Component {
         this.captureViewID = this.captureViewID.bind(this);
     }
 
+    //Pass to parent, Add to Fav request
     addToFav() {
         this.props.addToFav(this.props.title, this.props.poster, this.props.id);
     }
 
+    //Pss to parent, movie id upon view request
     captureViewID() {
         this.props.getViewID(this.props.id)
     }
+
+    
     render() {
         const poster = "https://image.tmdb.org/t/p/w780/" + this.props.poster;
         return (

@@ -2,6 +2,9 @@ import React from 'react';
 import SingleMovieDetail from './SingleMovieDetail';
 import loader from '../../../images/loader2.gif';
 
+//This Class has only one parent: AllMovieList
+//This class has only one child: SingleMovieDetail
+//this is responsible to open close SingleMovieDetail
 let renderThis;
 class MovieView extends React.Component {
     constructor() {
@@ -16,6 +19,7 @@ class MovieView extends React.Component {
         this.getProduction = this.getProduction.bind(this);
     }
 
+    //Close request for SingleMovieDetail
     handleCloseMovieView(){
         document.getElementById('filter').style.display = "inline-block";
         document.getElementById('sort').style.display = "inline-block";
@@ -23,6 +27,7 @@ class MovieView extends React.Component {
         this.setListAllFLAG();
     }
 
+    //if request to list all
     setListAllFLAG(){
         let searchFLAG = false;
         let listAllFLAG = true;
@@ -46,10 +51,12 @@ class MovieView extends React.Component {
         }
     }
 
+    //get production result from SingleMovieDetail
     getProduction(production){
         this.props.getProduction(production)
     }
 
+    //conditonal rendering if busy
     conditionalRendering(){
         renderThis = this.state.isLoading ? <p className="isLoading" ><img src={loader} alt="Loading" height="80" width="80"/>Loading API....</p>
         :

@@ -1,5 +1,8 @@
 import React from 'react'
 
+//This component has only one parent: Main
+//This component has only one child: FilterComponent
+//This is responsible to create a Controlled Form 
 function FilterComponent(props) {
     return (
         <div className="filter" id="filter">

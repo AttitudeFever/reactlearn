@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import About from './aboutus/About';
 import logo from '../images/logo2.png';
 
+//Parent of this class is App
+//This class has only one child component: About
+//Main is routed from here
 class Home extends React.Component {
 
     constructor(props) {
@@ -15,11 +18,13 @@ class Home extends React.Component {
         this.setListAllFLAG = this.setListAllFLAG.bind(this);
     }
 
+    //handling change on search field
     handleChange(e) {
         const searching = e.target.value;
         this.setState({ searchValue: searching })
     }
 
+    //if search from home is requested
     setSearchFLAG() {
         let searchFLAG = true;
         let listAllFLAG = false;
@@ -29,6 +34,7 @@ class Home extends React.Component {
         this.props.getSearchValue(this.state.searchValue);
     }
 
+    //if List All movies is requested
     setListAllFLAG() {
         let searchFLAG = false;
         let listAllFLAG = true;
