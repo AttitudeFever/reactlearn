@@ -40,7 +40,7 @@ class MovieView extends React.Component {
     async componentDidMount(){
         this.setState( {isLoading : true } )
         try {
-            let viewAPI = "http://www.randyconnolly.com/funwebdev/3rd/api/movie/movies.php?id="+this.props.viewID;
+            let viewAPI = "https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies.php?id="+this.props.viewID;
             const response = await fetch(viewAPI);
             const jsonData = await response.json();
             this.setState( {viewData : jsonData} )
