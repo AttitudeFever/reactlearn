@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/ReactAppA1/static/css/main.48d22bcc.chunk.css",
-    "main.js": "/ReactAppA1/static/js/main.3844844f.chunk.js",
-    "main.js.map": "/ReactAppA1/static/js/main.3844844f.chunk.js.map",
-    "runtime-main.js": "/ReactAppA1/static/js/runtime-main.ce61690c.js",
-    "runtime-main.js.map": "/ReactAppA1/static/js/runtime-main.ce61690c.js.map",
-    "static/js/2.05225ba5.chunk.js": "/ReactAppA1/static/js/2.05225ba5.chunk.js",
-    "static/js/2.05225ba5.chunk.js.map": "/ReactAppA1/static/js/2.05225ba5.chunk.js.map",
-    "index.html": "/ReactAppA1/index.html",
-    "precache-manifest.7d2f75568c221d654e865ee690fde8ea.js": "/ReactAppA1/precache-manifest.7d2f75568c221d654e865ee690fde8ea.js",
-    "service-worker.js": "/ReactAppA1/service-worker.js",
-    "static/css/main.48d22bcc.chunk.css.map": "/ReactAppA1/static/css/main.48d22bcc.chunk.css.map",
-    "static/js/2.05225ba5.chunk.js.LICENSE": "/ReactAppA1/static/js/2.05225ba5.chunk.js.LICENSE",
-    "static/media/style.css": "/ReactAppA1/static/media/bgAboutus.930b1733.jpg",
-    "static/media/hamid.png": "/ReactAppA1/static/media/hamid.aa85a6fd.png",
-    "static/media/loader2.gif": "/ReactAppA1/static/media/loader2.7a1fd145.gif",
-    "static/media/logo2.png": "/ReactAppA1/static/media/logo2.ac49e172.png",
-    "static/media/mark.jpg": "/ReactAppA1/static/media/mark.0356f72b.jpg",
-    "static/media/unknown_cast.jpg": "/ReactAppA1/static/media/unknown_cast.fda470f9.jpg"
+    "main.css": "/reactlearn/static/css/main.769a0145.chunk.css",
+    "main.js": "/reactlearn/static/js/main.3844844f.chunk.js",
+    "main.js.map": "/reactlearn/static/js/main.3844844f.chunk.js.map",
+    "runtime-main.js": "/reactlearn/static/js/runtime-main.626518ad.js",
+    "runtime-main.js.map": "/reactlearn/static/js/runtime-main.626518ad.js.map",
+    "static/js/2.05225ba5.chunk.js": "/reactlearn/static/js/2.05225ba5.chunk.js",
+    "static/js/2.05225ba5.chunk.js.map": "/reactlearn/static/js/2.05225ba5.chunk.js.map",
+    "index.html": "/reactlearn/index.html",
+    "precache-manifest.1ecaccffbdab3bf148806b215f753bb0.js": "/reactlearn/precache-manifest.1ecaccffbdab3bf148806b215f753bb0.js",
+    "service-worker.js": "/reactlearn/service-worker.js",
+    "static/css/main.769a0145.chunk.css.map": "/reactlearn/static/css/main.769a0145.chunk.css.map",
+    "static/js/2.05225ba5.chunk.js.LICENSE": "/reactlearn/static/js/2.05225ba5.chunk.js.LICENSE",
+    "static/media/style.css": "/reactlearn/static/media/bgAboutus.930b1733.jpg",
+    "static/media/hamid.png": "/reactlearn/static/media/hamid.aa85a6fd.png",
+    "static/media/loader2.gif": "/reactlearn/static/media/loader2.7a1fd145.gif",
+    "static/media/logo2.png": "/reactlearn/static/media/logo2.ac49e172.png",
+    "static/media/mark.jpg": "/reactlearn/static/media/mark.0356f72b.jpg",
+    "static/media/unknown_cast.jpg": "/reactlearn/static/media/unknown_cast.fda470f9.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ce61690c.js",
+    "static/js/runtime-main.626518ad.js",
     "static/js/2.05225ba5.chunk.js",
-    "static/css/main.48d22bcc.chunk.css",
+    "static/css/main.769a0145.chunk.css",
     "static/js/main.3844844f.chunk.js"
   ]
 }
