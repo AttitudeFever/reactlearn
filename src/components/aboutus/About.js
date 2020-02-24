@@ -83,8 +83,8 @@ class About extends React.Component {
                                 <li><a href="https://react.rocks/example/react-rater" target="_blank" rel="noopener noreferrer">react-rater</a></li>
                                 <li><a href="https://reactcommunity.org/react-tabs/" target="_blank" rel="noopener noreferrer">react-tabs</a></li>
                             </ul>
-                            <p>Project's Open Source: <a href="https://github.com/AttitudeFever/ReactAppA1" target="_blank" rel="noopener noreferrer">Repository</a></p>
-                            <p>Project Depolyment via Heroku Server</p>
+                            <p>Project's Open Source: <a href="https://github.com/AttitudeFever/reactlearn" target="_blank" rel="noopener noreferrer">Repository</a></p>
+                            <p>Project Depolyment via <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer">Firebase Server</a></p>
                             <h1 className="pih">Credits</h1>
                             <ul>We would like to give credits to these awesome people:
                             <li><a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Awesome Backgroud Image</a></li>
